@@ -37,10 +37,9 @@ export default function Hero2() {
       {/* Heading */}
       <motion.div
         className="flex items-center gap-4 mt-[131px] mb-8"
-        initial={{ y: 20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
       >
         <motion.h2
           className="text-2xl font-normal text-black whitespace-nowrap"
@@ -75,18 +74,18 @@ export default function Hero2() {
             alt={"preston"}
             width={1710}
             height={823}
-            className="object-cover w-full h-full group-hover:scale-105 rounded-lg transition-transform"
+            className="object-cover w-full h-full group-hover:scale-110 rounded-lg transition-transform duration-800"
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-gray-800/40 to-transparent transition"></div>
 
           {/* Text */}
           <div className="absolute bottom-3 left-3 text-white mb-4 ml-4">
-            <h3 className="text-lg font-normal">Preston</h3>
-            <p className="text-sm opacity-80 w-72 font-light">
+            <h3 className="text-2xl font-normal">Preston</h3>
+            <p className="text-md opacity-80 w-72 font-light">
               Advanced solar cooking solution
             </p>
-            <p className="text-sm opacity-80 w-72 font-light">August 2025</p>
+            <p className="text-md opacity-80 w-72 font-light">August 2025</p>
           </div>
 
           {/* Button */}

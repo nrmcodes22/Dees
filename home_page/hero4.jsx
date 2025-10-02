@@ -124,7 +124,7 @@ export default function Hero4() {
             <div>
               <p className="text-gray-600 text-md mb-4">“{item.text}”</p>
               {item.text2 && (
-                <p className="text-gray-600 text-sm mb-4">“{item.text2}”</p>
+                <p className="text-gray-600 text-md mb-4">“{item.text2}”</p>
               )}
             </div>
             <h4 className="font-semibold text-gray-900">

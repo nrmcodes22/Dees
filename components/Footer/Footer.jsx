@@ -1,6 +1,6 @@
 "use client";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const container = {
@@ -26,29 +26,38 @@ const item = {
     },
   },
 };
+
 export default function Footer() {
   return (
     <footer className="bg-[#570202] text-white py-10 px-6 md:px-12 lg:px-20">
-       <motion.div
+      
+      <motion.div 
+      className="flex justify-start mb-6"
+      variants={item}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}>
+        <Image
+          src="/images/avatar.png"
+          alt="Profile"
+          width={64}
+          height={64}
+          className="rounded-full w-16 h-16"
+        />
+      </motion.div>
+
+      {/* Grid Section */}
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-4 gap-8"
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-50px" }}
       >
-        {/* Profile Section */}
+        {/* Profile Info */}
         <motion.div variants={item}>
-          <div className="flex items-center mb-4">
-            <Image
-              src="/images/avatar.png"
-              alt="Profile"
-              width={50}
-              height={50}
-              className="rounded-full w-16 h-16"
-            />
-          </div>
           <h3 className="font-semibold">Dollamani Behera</h3>
-          <p className="text-sm mt-10 font-light">Email:</p>
+          <p className="text-sm mt-6 font-light">Email:</p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
             className="text-sm font-light hover:underline"
@@ -58,10 +67,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Links Section */}
-        <motion.div
-          className="flex flex-col space-y-2"
-          variants={item}
-        >
+        <motion.div className="flex flex-col space-y-2" variants={item}>
           <a href="#projects" className="underline underline-offset-4 hover:text-gray-300 transition">
             Projects
           </a>
@@ -77,10 +83,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Legal Section */}
-        <motion.div
-          className="flex flex-col space-y-2"
-          variants={item}
-        >
+        <motion.div className="flex flex-col space-y-2" variants={item}>
           <a href="#privacy" className="underline underline-offset-4 hover:text-gray-300 transition">
             Privacy policy
           </a>
@@ -90,16 +93,13 @@ export default function Footer() {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
-          className="flex flex-col space-y-3"
-          variants={item}
-        >
-          <p className="text-md">
+        <motion.div className="flex flex-col space-y-3" variants={item}>
+          <p className="text-md max-w-3xs">
             Interested in working together or have a question?
           </p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
-            className="bg-white text-[#570202] px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition"
+            className="bg-[#FCDCDC] text-[#570202] px-5 py-2 rounded-full text-sm font-medium  transition max-w-48 text-center"
           >
             Send me a message!
           </a>
@@ -114,18 +114,12 @@ export default function Footer() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <motion.p
-          className="text-xs text-gray-300"
-          variants={item}
-        >
+        <motion.p className="text-xs text-gray-300" variants={item}>
           © DollamaniBehera2025
         </motion.p>
 
         {/* Socials */}
-        <motion.div
-          className="flex gap-4 mt-4 md:mt-0"
-          variants={item}
-        >
+        <motion.div className="flex gap-4 mt-4 md:mt-0" variants={item}>
           <motion.a
             href="https://instagram.com"
             target="_blank"
@@ -154,7 +148,7 @@ export default function Footer() {
             <FaGithub className="text-lg hover:text-gray-300" />
           </motion.a>
         </motion.div>
-        </motion.div>
+      </motion.div>
     </footer>
   );
 }

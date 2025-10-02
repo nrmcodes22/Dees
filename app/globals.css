@@ -22,12 +22,30 @@ html, body {
 }
 @keyframes infinite-scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 25s linear infinite;
+  animation: infinite-scroll 40s linear infinite;
 }
+@keyframes appear{
+  from {
+    opacity:0;
+    scale:0.5;
+  }
+  to {
+    opacity:1;
+    scale:1;
+  }
+}
+.animate-appear{
+   animation: appear linear;
+   animation-timeline: view();
+   animation-range: entry 0% cover 40%;
+}
+
+
+
 
 body {
   background: var(--background);

@@ -67,13 +67,13 @@ export default function Hero5() {
           <motion.div
             key={i}
             variants={item}
-            className="relative aspect-[3/4] rounded-md overflow-hidden"
+            className="relative aspect-[9/16] rounded-md overflow-hidden"
           >
             <Image
               src={src}
               alt={`Feed image ${i + 1}`}
               fill
-              className="object-cover rounded-md hover:scale-105 w-[300px] h-[675px] transition-transform"
+              className="object-cover rounded-md hover:scale-105  transition-transform"
             />
           </motion.div>
         ))}
@@ -127,7 +127,7 @@ export default function Hero5() {
         viewport={{ once: true }}
       >
         That’s a little of what I do. If it feels like the right fit, I’d love
-        to hear about your next project.
+        to <br/>hear about your next project.
       </motion.h2>
     </section>
   );

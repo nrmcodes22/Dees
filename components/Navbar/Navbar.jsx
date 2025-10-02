@@ -26,8 +26,8 @@ export default function Navbar() {
   const menuItems = [
     { label: "Projects", href: "#projects" },
     { label: "Logos", href: "#logos" },
-    { label: "Process", href: "#process" },
-    { label: "Packages", href: "#packages" },
+    { label: "Process", href: "/process" },
+    { label: "Packages", href: "/package" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];

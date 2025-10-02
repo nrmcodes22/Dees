@@ -1,39 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import {motion} from "framer-motion";
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const item = {
-  hidden: { 
-    opacity: 0, 
-    scale: 0.92,
-    y: 60,
-    rotateX: 15
-  },
-  show: { 
-    opacity: 1, 
-    scale: 1,
-    y: 0,
-    rotateX: 0,
-    transition: { 
-      duration: 0.9,
-      ease: [0.16, 1, 0.3, 1],
-      type: "spring",
-      stiffness: 100,
-      damping: 15
-    }
-  }
-};
+import {motion} from "framer-motion"
 const projects = [
   {
     title: "Evolvix IQ",
@@ -87,59 +55,36 @@ const projects = [
 
 export default function Hero2() {
   return (
-    <section className=" py-6 px-20 bg-white">
+    <section className="py-6 px-20 bg-white">
       {/* Heading */}
       <motion.div 
-    className="flex items-center gap-4 mt-[131px] mb-8"
-    initial={{ y: 20, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
-  >
-    <motion.h2 
-      className="text-2xl font-normal text-black whitespace-nowrap"
-      initial={{ y: 20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-    >
-      Projects you can dive into
-    </motion.h2>
-    <motion.div 
-      className="flex-1 h-px bg-[#989898]"
-      initial={{ scaleX: 0 }}
-      whileInView={{ scaleX: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-      style={{ originX: 0 }}
-    />
-  </motion.div>
-     
+      className=" flex items-center gap-4 mt-[131px] mb-8"
+      initial={{ y: 50, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
+      >
+        <h2 className="text-2xl font-normal text-black whitespace-nowrap">
+          Projects you can dive into
+        </h2>
+        <div className="flex-1 h-px bg-[#989898]"></div>
+      </motion.div>
 
       {/* Grid */}
-      <motion.div
-      className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-50px" }}
-    >
-      {projects.map((project, i) => (
-        <motion.div
-          key={i}
-          variants={item}
-          className="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
-        >
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        {projects.map((project, i) => (
+          <div
+            key={i}
+            className=" animate-appear relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+            
+          >
             <Image
               src={project.img}
               alt={project.title}
               width={400}
-              height={290}
-              className="object-cover w-full h-[283px] group-hover:scale-105 transition-transform"
+              height={283}
+              className="object-cover w-full h-[283px] group-hover:scale-125 transition-transform duration-800"
             />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-gray-800/40 to-gray-200/10  transition"></div>
-
-
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-gray-800/40 to-gray-200/10"></div>
 
             <div className="absolute bottom-3 left-3 text-white">
               <h3 className="text-lg font-normal">{project.title}</h3>
@@ -148,9 +93,9 @@ export default function Hero2() {
             <div className="absolute bottom-3 right-3 text-sm font-light text-white">
               {project.year}
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
