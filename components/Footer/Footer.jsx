@@ -1,5 +1,4 @@
 "use client";
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -48,7 +47,7 @@ export default function Footer() {
 
       {/* Grid Section */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-4 gap-8"
+        className="flex justify-between"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -56,50 +55,55 @@ export default function Footer() {
       >
         {/* Profile Info */}
         <motion.div variants={item}>
-          <h3 className="font-semibold">Dollamani Behera</h3>
-          <p className="text-sm mt-6 font-light">Email:</p>
+          <h3 className="font-semibold text-xl">Dollamani Behera</h3>
+          <p className="text-md mt-6 font-light">Email:</p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
-            className="text-sm font-light hover:underline"
+            className="text-md font-light hover:underline"
           >
             dollamanibehera857@gmail.com
           </a>
         </motion.div>
 
         {/* Links Section */}
-        <motion.div className="flex flex-col space-y-2" variants={item}>
-          <a href="#projects" className="underline underline-offset-4 hover:text-gray-300 transition">
+        <motion.div className=" font-light flex space-x-10 lg:space-x-20" variants={item}>
+          
+          <div className="flex flex-col text-lg  space-y-2 ">
+            <a href="#projects" className="underline underline-offset-4 hover:text-gray-300 transition">
             Projects
           </a>
-          <a href="#process" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="/process" className="underline underline-offset-4 hover:text-gray-300 transition">
             Process
           </a>
-          <a href="#packages" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="/packages" className="underline underline-offset-4 hover:text-gray-300 transition">
             Packages
           </a>
           <a href="#contact" className="underline underline-offset-4 hover:text-gray-300 transition">
             Contact
           </a>
-        </motion.div>
-
-        {/* Legal Section */}
-        <motion.div className="flex flex-col space-y-2" variants={item}>
-          <a href="#privacy" className="underline underline-offset-4 hover:text-gray-300 transition">
+          </div>
+          <div className="flex flex-col text-lg space-y-2">
+            <a href="#privacy" className="underline underline-offset-4 hover:text-gray-300 transition">
             Privacy policy
           </a>
           <a href="#terms" className="underline underline-offset-4 hover:text-gray-300 transition">
             Terms of service
           </a>
+          </div>
+
         </motion.div>
+
+        
+        
 
         {/* CTA Section */}
         <motion.div className="flex flex-col space-y-3" variants={item}>
-          <p className="text-md max-w-3xs">
+          <p className="text-lg max-w-3xs font-light">
             Interested in working together or have a question?
           </p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
-            className="bg-[#FCDCDC] text-[#570202] px-5 py-2 rounded-full text-sm font-medium  transition max-w-48 text-center"
+            className="bg-[#FCDCDC] text-[#570202] px-4 py-2 rounded-full text-md font-medium  transition max-w-48 text-center"
           >
             Send me a message!
           </a>
@@ -114,7 +118,7 @@ export default function Footer() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <motion.p className="text-xs text-gray-300" variants={item}>
+        <motion.p className="text-md text-gray-300" variants={item}>
           © DollamaniBehera2025
         </motion.p>
 
@@ -127,7 +131,7 @@ export default function Footer() {
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FaInstagram className="text-lg hover:text-gray-300" />
+            <img src="/images/icons/Instagram.png" className="h-10 w-10"/>
           </motion.a>
           <motion.a
             href="https://linkedin.com"
@@ -136,16 +140,16 @@ export default function Footer() {
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FaLinkedin className="text-lg hover:text-gray-300" />
+            <img src="/images/icons/Linkedin.png" className="h-10 w-10"/>
           </motion.a>
           <motion.a
-            href="https://github.com"
+            href="https://youtube.com"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FaGithub className="text-lg hover:text-gray-300" />
+            <img src="/images/icons/Youtube.png" className="h-10 w-10"/>
           </motion.a>
         </motion.div>
       </motion.div>
