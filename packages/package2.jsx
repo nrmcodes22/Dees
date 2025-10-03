@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Package2() {
   return (
-    <section className="py-6 px-20 bg-white">
+    <section className="py-6 px-24 bg-white">
       <div className="mt-15">
         {/* Heading */}
         <div className="flex items-center gap-4 mb-8">
