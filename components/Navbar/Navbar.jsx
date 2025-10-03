@@ -28,7 +28,7 @@ export default function Navbar() {
     { label: "Logos", href: "#logos" },
     { label: "Process", href: "/process" },
     { label: "Packages", href: "/package" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "#contact" },
   ];
 

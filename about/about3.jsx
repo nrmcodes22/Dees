@@ -11,7 +11,7 @@ export default function About3(){
           <div className="flex-1 h-px bg-[#989898]">
             </div>
         </div>
-        <div className="grid grid-cols-5 grid-rows-2  gap-4 mt-20 mb-20 lg:h-[700px] md:h-[400px]">
+        <div className="grid grid-cols-5 grid-rows-2  gap-4 mt-20 mb-20 lg:h-[700px] md:h-[400px] font-light">
             {/* Row 1 */}
             <div className="relative rounded-lg overflow-hidden row-span-2 col-span-2">
                 <img src="/images/about/read.jpg" alt="Reading" className="w-full h-full object-cover" />
