@@ -29,7 +29,7 @@ export default function Navbar() {
     { label: "Process", href: "/process" },
     { label: "Packages", href: "/package" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
