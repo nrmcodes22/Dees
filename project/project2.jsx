@@ -134,7 +134,7 @@ export default function Project2() {
 ];
 return (
     <section className="py-6 px-8 md:px-20 bg-white">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-20 mb-20">
         {projects.map((project, index) => (
           <div
             key={index}

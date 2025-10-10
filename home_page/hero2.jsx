@@ -55,47 +55,59 @@ const projects = [
 
 export default function Hero2() {
   return (
-    <section className="py-6 px-20 bg-white">
+    <section className="lg:pt-[131px] lg:px-[106px] pt-[44px] md:px-[39px] px-[20px] pb-[34px] bg-white">
       {/* Heading */}
       <motion.div 
-      className=" flex items-center gap-4 mt-[131px] mb-8"
+      className=" flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-[21px] md:mb-[60px] lg:mb-[87px]"
       initial={{ y: 50, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
       >
-        <h2 className="text-2xl font-normal text-black whitespace-nowrap">
+        <h2 className="text-[16px] lg:text-[28px] md:text-[22px] font-[500] text-black whitespace-nowrap">
           Projects you can dive into
         </h2>
         <div className="flex-1 h-px bg-[#989898]"></div>
       </motion.div>
 
       {/* Grid */}
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid md:gap-x-[23px] lg:gap-x-[42px] gap-x-[19.63px]  md:gap-y-[24px] lg:gap-y-[52px] gap-y-[23.61px] grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {projects.map((project, i) => (
           <div
             key={i}
-            className=" animate-appear relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+            className=" animate-appear relative group rounded-[6px] overflow-hidden shadow-md hover:shadow-xl transition"
             
           >
-            <Image
-              src={project.img}
-              alt={project.title}
-              width={400}
-              height={283}
-              className="object-cover w-full h-[283px] group-hover:scale-125 transition-transform duration-800"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-gray-800/40 to-gray-200/10"></div>
+         <div className="relative w-full lg:aspect-[395/283] md:aspect-[380/214] aspect-[190.37/136.392]">
+    <Image
+      src={project.img}
+      alt={project.title}
+      fill
+      className="object-cover group-hover:scale-125 transition-transform duration-800"
+    />
+    <div
+      className="absolute inset-0 rounded-[2.892px]"
+      style={{
+        background: `
+          linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.82) 100%)
+        `,
+      }}
+    ></div>
+  </div>
+
 
             <div className="absolute bottom-3 left-3 text-white">
-              <h3 className="text-lg font-normal">{project.title}</h3>
-              <p className="text-sm opacity-80 font-light w-72">{project.category}</p>
+              <h3 className="text-[16px] md:text-[22px]  font-[500]">{project.title}</h3>
+              <p className="md:text-[14px] text-[8px] text-[#C6C6C6] w-[151.013px] font-[300] leading-normal">{project.category}</p>
             </div>
-            <div className="absolute bottom-3 right-3 text-sm font-light text-white">
+            <div className="absolute bottom-3 right-3 text-[8px] font-[300]  text-[#C6C6C6] md:text-[14px] leading-normal">
               {project.year}
             </div>
           </div>
         ))}
       </div>
+      <button className=" mt-[52.61px] block md:hidden font-worksans text-white text-[15.422px] font-[500] bg-[#570202] px-[45.5px] py-[16px] rounded-[32.13px] transition-all duration-300 tracking-[-0.463px]">
+  See more
+</button>
     </section>
   );
 }
