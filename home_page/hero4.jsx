@@ -242,7 +242,7 @@ export default function Hero4() {
     <section className="lg:pt-[74px] lg:px-[106px] pt-[27px] md:px-[39px] px-[20px] bg-white">
       {/* Section Heading */}
       <motion.div
-        className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-[29px]"
+        className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-[29px] md:mt-[86px] mt-[104px] lg:mt-[198px]"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
