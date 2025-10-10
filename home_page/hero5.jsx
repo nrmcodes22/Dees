@@ -247,7 +247,7 @@ export default function Hero5() {
         <div className="relative md:hidden">
           <motion.div
             ref={scrollContainerRef}
-            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 px-[5.5%] mb-10"
+            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-[14px] mb-10"
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
