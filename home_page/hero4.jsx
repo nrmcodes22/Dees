@@ -273,7 +273,7 @@ export default function Hero4() {
           ref={scrollContainerRef}
           className={`
             ${isMobile
-              ? "flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 px-[2.5%] items-stretch"
+              ? "flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-[7px] items-stretch"
               : "grid md:gap-[14px] lg:gap-[69px] md:grid-cols-2 lg:grid-cols-3"
             }
           `}
@@ -295,7 +295,7 @@ export default function Hero4() {
               className={`
                 border rounded-[6px] shadow-sm bg-white flex flex-col justify-between border-[#989898] pt-[19.4px] px-[16px] pb-[6px]
                 md:pt-[26px] md:px-[21px] md:pb-[17px] h-full
-                ${isMobile ? " snap-center aspect-[390/345]" : "h-full"}
+                ${isMobile ? "min-w-[390px] snap-center min-h-[405px] " : "h-full"}
               `}
             >
               {testimonial.img && (
