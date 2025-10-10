@@ -293,9 +293,9 @@ export default function Hero4() {
               data-testimonial-item
               variants={item}
               className={`
-                border rounded-[6px] shadow-sm bg-white flex flex-col justify-between border-[#989898] pt-[19.4px] px-[16px] pb-[6px]
+                border rounded-[6px] shadow-sm bg-white flex flex-col justify-between border-[#989898] pt-[19.4px] px-[15px] pb-[6px]
                 md:pt-[26px] md:px-[21px] md:pb-[17px] h-full
-                ${isMobile ? "min-w-[390px] snap-center min-h-[405px] " : "h-full"}
+                ${isMobile ? "min-w-[370px] snap-center min-h-[425px] " : "h-full"}
               `}
             >
               {testimonial.img && (
