@@ -11,28 +11,53 @@ const lineVariant = {
     transition: {
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
-      delay: i * 0.8, // delay for each line
+      delay: i * 0.8,
     },
   }),
 };
 
 export default function Hero1() {
   return (
-    <div className="flex flex-col items-center text-center  bg-[#570202]">
-      <motion.h1 className="lg:mt-[245px] md:mt-[196px] md:text-[48px] lg:text-[59px] text-[34px] font-[500] text-white md:leading-[51px] lg:leading-[70px] leading-[39.8px] lg:mx-[255px] md:mx-[159px] mx-[35px] mb-[87.87px] md:mb-[83.5px] lg:mb-[133px] lg:w-[900px] md:w-[800px] w-[370px]">
+    <div className="flex flex-col items-center text-center bg-[#570202]">
+      <motion.h1
+        className="
+          lg:mt-60 md:mt-48
+          text-2xl md:text-4xl lg:text-5xl
+          font-medium text-white
+          leading-snug md:leading-tight lg:leading-[4.5rem]
+          lg:mx-64 md:mx-40 mx-8
+          mb-20 md:mb-20 lg:mb-32
+          lg:w-[56.25rem] md:w-[50rem] w-[23rem]
+        "
+      >
+        {/* Desktop + Tablet version (2 lines, 6 words per line) */}
         <motion.div
+          className="hidden md:block"
           custom={0}
           variants={lineVariant}
           initial="hidden"
           animate="show"
         >
-          Hand over your project, and sit back to see it go live.
+          Hand over your project, and sit<br />
+           back to see it go live.
         </motion.div>
-        
+
+        {/* Mobile version (3 lines, shorter per line) */}
+        <motion.div
+          className="block md:hidden"
+          custom={0}
+          variants={lineVariant}
+          initial="hidden"
+          animate="show"
+        >
+          Hand over your <br />
+          project, and sit back <br />
+          to see it go live.
+        </motion.div>
       </motion.h1>
 
       {/* Marquee */}
-      <div className="w-full mb-[156px] lg:mb-[256px] md:mb-[198.5px]">
+      <div className="w-full mb-40 md:mb-48 lg:mb-64">
         <Marquee text="I’ve got a thing for great brands, so I design them" />
       </div>
     </div>

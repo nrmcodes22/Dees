@@ -70,21 +70,21 @@ export default function Navbar() {
     <motion.a
       key={item.href}
       href={item.href}
-      className="relative text-[1.25rem] lg:text-[1.5rem] font-[400] font-worksans lg:p-[0.5rem] p-[0.25rem]"
+      className="relative text-xl lg:text-2xl font-normal font-worksans lg:p-2 p-1"
       variants={menuItem}
       whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300 } }}
     >
       {item.label}
 
-      {/* underline hover effect */}
       <motion.span
-        className="absolute left-0 -bottom-1 w-full h-[0.125rem] bg-white origin-left scale-x-0"
+        className="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left scale-x-0"
         whileHover={{ scaleX: 1 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       />
     </motion.a>
   ))}
 </motion.div>
+
 
 
   {/* Mobile Hamburger */}
