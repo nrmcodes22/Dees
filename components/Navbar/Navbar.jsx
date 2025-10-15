@@ -35,12 +35,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-[#570202] text-white flex items-center justify-between  
-  xl:py-[52px] xl:pl-[143.047px] xl:pr-[107px] 
-  md:px-[40px] md:pt-[22px] md:pb-[21px] 
-  pt-[40px] px-[20px] pb-[156px] relative min-gap-x-12"
+    <nav
+  className="bg-[#570202] text-white flex items-center justify-between
+  xl:py-12 xl:pl-[9rem] xl:pr-[6.75rem]
+  md:px-10 md:pt-[1.375rem] md:pb-[1.3125rem]
+  pt-10 px-5 pb-[9.75rem] relative min-gap-x-12"
 >
-  {/* Logo with animation */}
+ {/* Logo with animation */}
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -48,41 +49,43 @@ export default function Navbar() {
     className="flex items-center"
   >
     <Link href="/" className="inline-block">
-      <Image
-        src="/images/Dees.png"
-        alt="Dees Logo"
-        width={100}
-        height={100}
-        className="w-[87.51px] h-[29.51px]"
-      />
+     <Image
+  src="/images/Dees.png"
+  alt="Dees Logo"
+  width={100}
+  height={100}
+  className="w-22 h-7"
+/>
     </Link>
   </motion.div>
 
   {/* Desktop Menu */}
   <motion.div
-    className="hidden md:flex flex-grow justify-end md:gap-4 lg:gap-6"
-    variants={menuContainer}
-    initial="hidden"
-    animate="visible"
-  >
-    {menuItems.map((item) => (
-      <motion.a
-        key={item.href}
-        href={item.href}
-        className="relative text-[20px] lg:text-[24px] font-[400] font-worksans lg:p-[8px] p-[4px]"
-        variants={menuItem}
-        whileHover={{ y: -3, transition: { type: "spring", stiffness: 300 } }}
-      >
-        {item.label}
-        {/* underline hover effect */}
-        <motion.span
-          className="absolute left-0 -bottom-1 w-full h-[2px] bg-white origin-left scale-x-0"
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        />
-      </motion.a>
-    ))}
-  </motion.div>
+  className="hidden md:flex flex-grow justify-end md:gap-4 lg:gap-6"
+  variants={menuContainer}
+  initial="hidden"
+  animate="visible"
+>
+  {menuItems.map((item) => (
+    <motion.a
+      key={item.href}
+      href={item.href}
+      className="relative text-[1.25rem] lg:text-[1.5rem] font-[400] font-worksans lg:p-[0.5rem] p-[0.25rem]"
+      variants={menuItem}
+      whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300 } }}
+    >
+      {item.label}
+
+      {/* underline hover effect */}
+      <motion.span
+        className="absolute left-0 -bottom-1 w-full h-[0.125rem] bg-white origin-left scale-x-0"
+        whileHover={{ scaleX: 1 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+      />
+    </motion.a>
+  ))}
+</motion.div>
+
 
   {/* Mobile Hamburger */}
   <div className="md:hidden flex items-center">
