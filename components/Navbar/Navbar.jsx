@@ -1,5 +1,5 @@
 "use client";
-import React , { useState } from "react";
+import React , { useState , useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion ,AnimatePresence} from "framer-motion";
@@ -14,7 +14,13 @@ export default function Navbar() {
       transition: { staggerChildren: 0.12, delayChildren: 0.2 },
     },
   };
-
+ useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) setMenuOpen(false);
+    };
+      window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
   // Each menu item animation
   const menuItem = {
     hidden: { opacity: 0, y: 20 },
@@ -89,48 +95,71 @@ export default function Navbar() {
 
   {/* Mobile Hamburger */}
   <div className="md:hidden flex items-center">
-    <button onClick={() => setMenuOpen(!menuOpen)}>
-      <Image
-        src="/images/pumpkin.png"
-        alt="Menu"
-        width={50}
-        height={50}
-        className="w-[40px] h-[40px]"
-      />
-    </button>
-  </div>
+  <button onClick={() => setMenuOpen(!menuOpen)}>
+    <Image
+      src="/images/pumpkin.png"
+      alt="Menu"
+      width={40}
+      height={40}
+      className="w-8 h-8 sm:w-9 sm:h-9"
+    />
+  </button>
+</div>
 
-  {/* Mobile Slide Menu */}
-  <AnimatePresence>
-    {menuOpen && (
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 50 }}
-        className="absolute top-0 right-0 w-[305px] min-h-screen bg-white text-[#570202] flex flex-col items-start gap-[57px] md:hidden z-50"
-      >
-        <button onClick={() => setMenuOpen(false)} className="self-end">
-          <Image
-            src="/images/pumclose.png"
-            alt="Close Menu"
-            width={40}
-            height={40}
-            className="w-[40px] h-[40px] mt-[38px] mr-[45px] mb-[38px] p-0"
-          />
-        </button>
-        {menuItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="bg-white text-[#570202] font-[400] font-worksans text-[33.736px] leading-normal tracking-[-1.012px] hover:bg-[#FFE7E7] p-[9.64px] rounded-[6px] ml-[34px]"
-            onClick={() => setMenuOpen(false)}
+{/* Mobile Slide Menu */}
+<AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            className="
+              absolute top-0 right-0 
+              w-[80%] sm:w-[70%] min-h-screen 
+              bg-white text-[#570202] 
+              flex flex-col 
+              items-start 
+              gap-8 sm:gap-10 
+              md:hidden 
+              z-50 
+              p-6 sm:p-8
+            "
           >
-            {item.label}
-          </Link>
-        ))}
-      </motion.div>
-    )}
-  </AnimatePresence>
+            <button onClick={() => setMenuOpen(false)} className="self-end">
+              <Image
+                src="/images/pumclose.png"
+                alt="Close Menu"
+                width={35}
+                height={35}
+                className="w-8 h-8 sm:w-9 sm:h-9 mt-4 mr-2 sm:mr-4"
+              />
+            </button>
+
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="
+                  bg-white text-[#570202]
+                  font-worksans font-[400]
+                  text-[1.6rem] sm:text-[1.9rem]
+                  leading-normal tracking-tight
+                  hover:bg-[#FFE7E7]
+                  px-3 sm:px-4 py-2
+                  rounded-lg
+                  w-[80%] sm:w-[70%]
+                  ml-4 sm:ml-6
+                  transition-colors
+                "
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
 </nav>
 
   );
