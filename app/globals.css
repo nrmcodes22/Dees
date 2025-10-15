@@ -11,7 +11,8 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  
+  --breakpoint-lg:1000px;
+  --breakpoint-md:700px;
 }
 html, body {
   overflow-x: hidden;

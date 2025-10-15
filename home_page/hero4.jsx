@@ -274,7 +274,7 @@ export default function Hero4() {
           className={`
             ${isMobile
               ? "flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-[7px] items-stretch"
-              : "grid md:gap-[14px] lg:gap-[69px] md:grid-cols-2 lg:grid-cols-3"
+              : "grid md:gap-2 lg:gap-4 md:grid-cols-2 lg:grid-cols-3"
             }
           `}
           // keep visible immediately to avoid layout-dependent hiding

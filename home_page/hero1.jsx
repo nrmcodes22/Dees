@@ -19,7 +19,7 @@ const lineVariant = {
 export default function Hero1() {
   return (
     <div className="flex flex-col items-center text-center  bg-[#570202]">
-      <motion.h1 className="lg:mt-[245px] md:mt-[196px] md:text-[48px] lg:text-[92px] text-[34px] font-[500] text-white md:leading-[51px] lg:leading-[102px] leading-[39.8px] lg:mx-[255px] md:mx-[159px] mx-[35px] mb-[87.87px] md:mb-[83.5px] lg:mb-[133px]">
+      <motion.h1 className="lg:mt-[245px] md:mt-[196px] md:text-[48px] lg:text-[59px] text-[34px] font-[500] text-white md:leading-[51px] lg:leading-[70px] leading-[39.8px] lg:mx-[255px] md:mx-[159px] mx-[35px] mb-[87.87px] md:mb-[83.5px] lg:mb-[133px] lg:w-[900px] md:w-[800px] w-[370px]">
         <motion.div
           custom={0}
           variants={lineVariant}
