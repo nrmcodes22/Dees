@@ -22,7 +22,7 @@ export default function Hero1() {
       <motion.h1
         className="
           lg:mt-60 md:mt-48
-          text-2xl md:text-4xl lg:text-5xl
+          text-3xl md:text-5xl lg:text-6xl
           font-medium text-white
           leading-snug md:leading-tight lg:leading-[4.5rem]
           lg:mx-64 md:mx-40 mx-8
@@ -50,9 +50,9 @@ export default function Hero1() {
           initial="hidden"
           animate="show"
         >
-          Hand over your <br />
-          project, and sit back <br />
-          to see it go live.
+          Hand over your project,<br/> 
+          and sit back to see it  <br />
+          go live.
         </motion.div>
       </motion.h1>
 
