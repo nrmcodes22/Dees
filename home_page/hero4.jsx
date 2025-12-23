@@ -83,7 +83,7 @@ export default function Hero4() {
             overflow-x-auto
             snap-x snap-mandatory
             scroll-smooth scrollbar-hide
- text-[#6D7876] font-[400] px-4 
+ text-[#6D7876] font-[400] px-4 w-screen sm:w-full 
           "
         >
           {testimonials.map((item, i) => (
