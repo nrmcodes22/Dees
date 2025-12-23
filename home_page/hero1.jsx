@@ -11,18 +11,17 @@ export default function Hero1() {
       <h1
         className="
           lg:mt-60 mt-48
-          text-[clamp(2rem,5vw,7rem)]
+          text-[clamp(28px,4vw,92px)]
           font-medium text-white
           leading-normal
-          lg:mx-64 md:mx-40 mx-8
-          mb-20 md:mb-20 lg:mb-32
-          lg:max-w-[55%]
           
+          mb-20 md:mb-20 lg:mb-32
+           max-w-full sm:max-w-[55%]
         "
       >
         {/* Desktop + Tablet version (2 lines, 6 words per line) */}
         <div
-          className="hidden md:block"
+          className=""
           
         >
           Hand over your project, and sit
@@ -30,14 +29,7 @@ export default function Hero1() {
         </div>
 
         {/* Mobile version (3 lines, shorter per line) */}
-        <div
-          className="block md:hidden"
-          
-        >
-          Hand over your project,<br/> 
-          and sit back to see it  <br />
-          go live.
-        </div>
+        
       </h1>
 
       {/* Marquee */}

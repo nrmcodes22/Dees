@@ -47,19 +47,19 @@ export default function Footer() {
         
       >
         {/* Profile Info */}
-        <div>
-          <h3 className="font-semibold text-[22px] md:text-[16px] lg:text-[clamp(22px,2vw,28px)] tracking-tight">Dollamani Behera</h3>
+        <div className="">
+          <h3 className="font-semibold text-[clamp(16px,2vw,28px)] tracking-tight">Dollamani Behera</h3>
           <p className="text-[13px] md:text-[14px] lg:text-[clamp(10px,1.5vw,22px)]  mt-6 font-light">Email</p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
-            className="text-[13px] md:text-[14px] lg:text-[clamp(10px,1.5vw,22px)]  font-light hover:underline"
+            className="text-[clamp(10px,1.5vw,22px)]  font-light hover:underline"
           >
             dollamanibehera857@gmail.com
           </a>
         </div>
 
         {/* Links Section */}
-        <div className="text-[12px] md:text-[14px] lg:text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,2vw,20px)]" >
+        <div className="text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,2vw,20px)]" >
           
           <div className="flex flex-col  space-y-2 md:space-y-6 ">
             <a href="#projects" className="underline underline-offset-6 decoration-1 transition">
