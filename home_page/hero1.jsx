@@ -3,58 +3,42 @@ import React from "react";
 import { motion } from "framer-motion";
 import Marquee from "../components/Marquee";
 
-const lineVariant = {
-  hidden: { y: 40, opacity: 0 },
-  show: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1],
-      delay: i * 0.8,
-    },
-  }),
-};
+
 
 export default function Hero1() {
   return (
     <div className="flex flex-col items-center text-center bg-[#570202]">
-      <motion.h1
+      <h1
         className="
-          lg:mt-60 md:mt-48
-          text-3xl md:text-5xl lg:text-6xl
+          lg:mt-60 mt-48
+          text-[clamp(2rem,5vw,7rem)]
           font-medium text-white
-          leading-snug md:leading-tight lg:leading-[4.5rem]
+          leading-normal
           lg:mx-64 md:mx-40 mx-8
           mb-20 md:mb-20 lg:mb-32
-          lg:w-[56.25rem] md:w-[50rem] w-[23rem]
+          lg:max-w-[55%]
+          
         "
       >
         {/* Desktop + Tablet version (2 lines, 6 words per line) */}
-        <motion.div
+        <div
           className="hidden md:block"
-          custom={0}
-          variants={lineVariant}
-          initial="hidden"
-          animate="show"
+          
         >
-          Hand over your project, and sit<br />
+          Hand over your project, and sit
            back to see it go live.
-        </motion.div>
+        </div>
 
         {/* Mobile version (3 lines, shorter per line) */}
-        <motion.div
+        <div
           className="block md:hidden"
-          custom={0}
-          variants={lineVariant}
-          initial="hidden"
-          animate="show"
+          
         >
           Hand over your project,<br/> 
           and sit back to see it  <br />
           go live.
-        </motion.div>
-      </motion.h1>
+        </div>
+      </h1>
 
       {/* Marquee */}
       <div className="w-full mb-40 md:mb-48 lg:mb-64">

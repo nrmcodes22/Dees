@@ -28,14 +28,10 @@ const item = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#570202] text-white py-10 px-6 md:px-12 lg:px-20">
+    <footer className="bg-[#570202] text-white py-10 ">
       
-      <motion.div 
-      className="flex justify-start mb-6"
-      variants={item}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-50px" }}>
+      <div 
+      className="flex justify-start mb-6 px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)]">
         <Image
           src="/images/avatar.png"
           alt="Profile"
@@ -43,116 +39,108 @@ export default function Footer() {
           height={64}
           className="rounded-full w-16 h-16"
         />
-      </motion.div>
+      </div>
 
       {/* Grid Section */}
-      <motion.div
-        className="flex justify-between"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-50px" }}
+      <div
+        className="flex justify-between px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)]"
+        
       >
         {/* Profile Info */}
-        <motion.div variants={item}>
-          <h3 className="font-semibold text-xl">Dollamani Behera</h3>
-          <p className="text-md mt-6 font-light">Email:</p>
+        <div>
+          <h3 className="font-semibold text-[22px] md:text-[16px] lg:text-[clamp(22px,2vw,28px)] tracking-tight">Dollamani Behera</h3>
+          <p className="text-[13px] md:text-[14px] lg:text-[clamp(10px,1.5vw,22px)]  mt-6 font-light">Email</p>
           <a
             href="mailto:dollamanibehera857@gmail.com"
-            className="text-md font-light hover:underline"
+            className="text-[13px] md:text-[14px] lg:text-[clamp(10px,1.5vw,22px)]  font-light hover:underline"
           >
             dollamanibehera857@gmail.com
           </a>
-        </motion.div>
+        </div>
 
         {/* Links Section */}
-        <motion.div className=" font-light flex space-x-10 lg:space-x-20" variants={item}>
+        <div className="text-[12px] md:text-[14px] lg:text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,2vw,20px)]" >
           
-          <div className="flex flex-col text-lg  space-y-2 ">
-            <a href="#projects" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <div className="flex flex-col  space-y-2 md:space-y-6 ">
+            <a href="#projects" className="underline underline-offset-6 decoration-1 transition">
             Projects
           </a>
-          <a href="/process" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="/process" className="underline underline-offset-6
+          decoration-1  transition">
             Process
           </a>
-          <a href="/packages" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="/packages" className="underline underline-offset-6 decoration-1 transition">
             Packages
           </a>
-          <a href="#contact" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="#contact" className="underline underline-offset-7
+          decoration-1  transition">
             Contact
           </a>
           </div>
-          <div className="flex flex-col text-lg space-y-2">
-            <a href="#privacy" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <div className="flex flex-col  space-y-2 md:space-y-6">
+            <a href="#privacy" className="underline underline-offset-7
+          decoration-1  transition">
             Privacy policy
           </a>
-          <a href="#terms" className="underline underline-offset-4 hover:text-gray-300 transition">
+          <a href="#terms" className="underline underline-offset-7
+          decoration-1 transition">
             Terms of service
           </a>
           </div>
 
-        </motion.div>
+        </div>
 
         
         
 
         {/* CTA Section */}
-        <motion.div className="flex flex-col space-y-3" variants={item}>
-          <p className="text-lg max-w-3xs font-light">
+        <div className="md:flex md:flex-col md:space-y-3 hidden md:max-w-[24vw] ">
+          <p className="text-[12px] md:text-[14px] lg:text-[clamp(10px,1.5vw,24px)] tracking-[-5%]  font-light leading-normal">
             Interested in working together or have a question?
           </p>
-          <a
-            href="mailto:dollamanibehera857@gmail.com"
-            className="bg-[#FCDCDC] text-[#570202] px-4 py-2 rounded-full text-md font-medium  transition max-w-48 text-center"
-          >
-            Send me a message!
-          </a>
-        </motion.div>
-      </motion.div>
+          
+          <a href="/" className="w-fit h-fit inline-flex  items-center justify-center gap-2 mt-8 md:mt-0 bg-[#FCDCDC] text-[#570202] px-[clamp(10px,12vw,22px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[12px] md:text-[14px] lg:text-[clamp(14px,1.5vw,24px)] tracking-tight leading-none whitespace-nowrap select-none touch-manipulation">Send me a message!</a>
+        </div>
+      </div>
 
       {/* Divider + Bottom Section */}
-      <motion.div
-        className="border-t border-white mt-10 pt-6 flex flex-col md:flex-row items-center justify-between"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.p className="text-md text-gray-300" variants={item}>
-          © DollamaniBehera2025
-        </motion.p>
+      <div
+        className="border-t px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)] border-white mt-10 pt-6 flex flex-row items-center justify-between">
+        <p className="text-[clamp(12px,1.5vw,16px)] text-white flex gap-1 items-center">
+          <img src="/images/icons/c.png" className="w-[clamp(15px,2.5vw,22px)] h-[clamp(13px,2vw,20px)] " />DollamaniBehera2025
+        </p>
 
         {/* Socials */}
-        <motion.div className="flex gap-4 mt-4 md:mt-0" variants={item}>
-          <motion.a
+        <div className="flex gap-[clamp(10px,2vw,20px)] items-center">
+          <a
             href="https://instagram.com"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src="/images/icons/Instagram.png" className="h-10 w-10"/>
-          </motion.a>
-          <motion.a
+            <img src="/images/icons/Instagram.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
+          </a>
+          <a
             href="https://linkedin.com"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src="/images/icons/Linkedin.png" className="h-10 w-10"/>
-          </motion.a>
-          <motion.a
+            <img src="/images/icons/Linkedin.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
+          </a>
+          <a
             href="https://youtube.com"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src="/images/icons/Youtube.png" className="h-10 w-10"/>
-          </motion.a>
-        </motion.div>
-      </motion.div>
+            <img src="/images/icons/Youtube.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }

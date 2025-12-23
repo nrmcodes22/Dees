@@ -2,9 +2,11 @@
 import React , { useState , useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {usePathname} from "next/navigation"
 import { motion ,AnimatePresence} from "framer-motion";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   // Container for stagger effect
   const menuContainer = {
@@ -42,10 +44,9 @@ export default function Navbar() {
 
   return (
     <nav
-  className="bg-[#570202] text-white flex items-center justify-between
-  xl:py-12 xl:pl-[9rem] xl:pr-[6.75rem]
-  md:px-10 md:pt-[1.375rem] md:pb-[1.3125rem]
-  pt-10 px-5 pb-[9.75rem] relative min-gap-x-12"
+  className="bg-[#570202]  text-white flex items-center justify-between relative
+  px-[clamp(1.25rem,6vw,9rem)]
+  py-[clamp(1.25rem,3vw,3rem)]"
 >
  {/* Logo with animation */}
   <motion.div
@@ -60,14 +61,15 @@ export default function Navbar() {
   alt="Dees Logo"
   width={100}
   height={100}
-  className="w-22 h-7"
+  className="w-22 h-8 mt-6 md:mt-0"
 />
     </Link>
   </motion.div>
 
   {/* Desktop Menu */}
   <motion.div
-  className="hidden md:flex flex-grow justify-end md:gap-4 lg:gap-6"
+  className="hidden md:flex flex-grow justify-end gap-x-[clamp(1rem,3vw,4rem)]
+"
   variants={menuContainer}
   initial="hidden"
   animate="visible"
@@ -76,7 +78,9 @@ export default function Navbar() {
     <motion.a
       key={item.href}
       href={item.href}
-      className="relative text-xl lg:text-2xl font-normal font-worksans lg:p-2 p-1"
+      className={`relative ${pathname === item.href 
+              ? "text-[#FFE7E7]"      // ACTIVE
+              : "text-white"}  text-xl md:text-[1.25rem] lg:text-[1.75rem] leading-normal tracking-[-0.03em] font-[400] font-worksans lg:p-2 p-1`}
       variants={menuItem}
       whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300 } }}
     >
@@ -94,14 +98,14 @@ export default function Navbar() {
 
 
   {/* Mobile Hamburger */}
-  <div className="md:hidden flex items-center">
+  <div className="md:hidden flex items-center mt-6 md:mt-0">
   <button onClick={() => setMenuOpen(!menuOpen)}>
     <Image
       src="/images/pumpkin.png"
       alt="Menu"
       width={40}
       height={40}
-      className="w-8 h-8 sm:w-9 sm:h-9"
+      className="w-9 h-9"
     />
   </button>
 </div>
@@ -131,7 +135,7 @@ export default function Navbar() {
                 alt="Close Menu"
                 width={35}
                 height={35}
-                className="w-8 h-8 sm:w-9 sm:h-9 mt-4 mr-2 sm:mr-4"
+                className="w-9 h-9 mt-4 mr-2 sm:mr-4"
               />
             </button>
 
@@ -139,18 +143,25 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="
-                  bg-white text-[#570202]
+
+                className=
+                 {`  text-[#570202]
                   font-worksans font-[400]
                   text-[1.6rem] sm:text-[1.9rem]
                   leading-normal tracking-tight
-                  hover:bg-[#FFE7E7]
+                  
                   px-3 sm:px-4 py-2
                   rounded-lg
                   w-[80%] sm:w-[70%]
                   ml-4 sm:ml-6
                   transition-colors
-                "
+                  ${pathname === item.href 
+              ? "bg-[#FFE7E7]"      // ACTIVE
+              : "bg-white"}  // INACTIVE
+                  
+                  `}
+                  
+                
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
