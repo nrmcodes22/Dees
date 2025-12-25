@@ -24,9 +24,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${workSans.variable} ${geist.className}`}>
+      <body className={`${geist.variable} ${workSans.variable} ${geist.className} min-h-screen flex flex-col`}>
         <Navbar />
-        {children}
+        <main className="flex-1 bg-white">
+            {children}
+        </main>
         <Footer/>
       </body>
     </html>

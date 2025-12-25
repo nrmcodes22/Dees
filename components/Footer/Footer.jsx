@@ -28,7 +28,7 @@ const item = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#570202] text-white py-10 ">
+    <footer className="bg-[#570202] text-white py-10   ">
       
       <div 
       className="flex justify-start mb-6 px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)]">
@@ -115,27 +115,21 @@ export default function Footer() {
           <a
             href="https://instagram.com"
             target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.2 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            
           >
             <img src="/images/icons/Instagram.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.2 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            
           >
             <img src="/images/icons/Linkedin.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
           </a>
           <a
             href="https://youtube.com"
             target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.2 }}
-            transition={{ type: "spring", stiffness: 300 }}
+           
           >
             <img src="/images/icons/Youtube.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
           </a>

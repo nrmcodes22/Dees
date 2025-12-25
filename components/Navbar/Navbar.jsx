@@ -68,7 +68,7 @@ export default function Navbar() {
 
   {/* Desktop Menu */}
   <motion.div
-  className="hidden md:flex flex-grow justify-end gap-x-[clamp(1rem,3vw,4rem)]
+  className="hidden md:flex flex-grow justify-end gap-x-[clamp(16px,2vw,72px)]
 "
   variants={menuContainer}
   initial="hidden"
@@ -80,7 +80,7 @@ export default function Navbar() {
       href={item.href}
       className={`relative ${pathname === item.href 
               ? "text-[#FFE7E7]"      // ACTIVE
-              : "text-white"}  text-xl md:text-[1.25rem] lg:text-[1.75rem] leading-normal tracking-[-0.03em] font-[400] font-worksans lg:p-2 p-1`}
+              : "text-white"}  text-[clamp(18px,2vw,24px)] leading-normal tracking-[-0.03em] font-[400] font-worksans lg:p-2 p-1`}
       variants={menuItem}
       whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300 } }}
     >
