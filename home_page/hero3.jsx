@@ -45,7 +45,7 @@ export default function Hero3() {
          <div className="flex justify-between items-end w-full">
     {/* Left section */}
     <div className="w-full md:w-auto">
-      <h2 className="text-[clamp(20px,3vw,28px)]  font-[500]">Preston</h2>
+      <h2 className="text-[clamp(20px,3vw,28px)] text-white font-[500]">Preston</h2>
 
       <div className="flex md:flex-col justify-between text-[clamp(16px,1.9vw,24px)] font-[300] text-[#C6C6C6] lg:text-white w-full">
         <p>Advanced solar cooking solution</p>
