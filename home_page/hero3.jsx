@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 
 export default function Hero3() {
   return (
-    <section className="lg:pt-[74px] pt-[44px]  pb-[34px] px-[clamp(20px,6vw,120px)]  bg-white">
+    <section className="lg:pt-[74px] pt-[44px]  pb-[34px] px-[clamp(20px,4vw,120px)]  bg-white">
       {/* Heading */}
       <div
         className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-[29px]"
         
       >
         <h2
-          className="text-lg md:text-2xl lg:text-[1.75rem] font-[500] text-black whitespace-nowrap"
+          className="text-[clamp(16px,2.3vw,28px)]  font-[500] text-black whitespace-nowrap"
           
         >
           Latest from my desk
@@ -41,13 +41,13 @@ export default function Hero3() {
           {/* Gradient overlay */}
          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-gray-800/30 to-transparent transition"></div>
       {/* Text */}
-      <div className="absolute bottom-0 left-0 px-[12px] lg:px-[49px] md:px-[27px] pb-[16px] md:pb-[28.8px] lg:pb-[55px] leading-normal w-full">
+      <div className="absolute bottom-0 left-0 px-[clamp(12px,3vw,49px)] pb-[clamp(16px,2vw,55px)] leading-normal w-full">
          <div className="flex justify-between items-end w-full">
     {/* Left section */}
     <div className="w-full md:w-auto">
-      <h2 className="text-xl lg:text-3xl md:text-2xl font-[500]">Preston</h2>
+      <h2 className="text-[clamp(20px,3vw,28px)]  font-[500]">Preston</h2>
 
-      <div className="flex md:flex-col justify-between text-[16px] md:text-[18px] lg:text-[22px] font-[300] text-[#C6C6C6] lg:text-white w-full">
+      <div className="flex md:flex-col justify-between text-[clamp(16px,1.9vw,24px)] font-[300] text-[#C6C6C6] lg:text-white w-full">
         <p>Advanced solar cooking solution</p>
         <p className="tracking-[-0.88px]">2025</p>
       </div>

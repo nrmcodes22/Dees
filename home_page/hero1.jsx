@@ -11,12 +11,12 @@ export default function Hero1() {
       <h1
         className="
           lg:mt-60 mt-48
-          text-[clamp(28px,4vw,92px)]
+          text-[clamp(28px,4.5vw,92px)]
           font-medium text-white
-          leading-normal
+          leading-[clamp(30px,5vw,84px)]
           
           mb-20 md:mb-20 lg:mb-32
-           max-w-full sm:max-w-[55%]
+           max-w-full sm:max-w-[55%] md:max-w-[70%]
         "
       >
         {/* Desktop + Tablet version (2 lines, 6 words per line) */}

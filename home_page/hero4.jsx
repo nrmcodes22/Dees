@@ -55,14 +55,14 @@ export default function Hero4() {
     setActive(Math.round(track.scrollLeft / stride));
   };
   return (
-    <section className="lg:pt-[74px] px-[clamp(20px,6vw,120px)]  pt-[44px]  pb-[34px] bg-white">
+    <section className="lg:pt-[74px] px-[clamp(20px,4vw,120px)]  pt-[44px]  pb-[34px] bg-white">
       {/* Heading */}
       <div
         className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-[29px]"
         
       >
         <h2
-          className="text-lg md:text-2xl lg:text-[1.75rem] font-[500] text-black whitespace-nowrap"
+          className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap"
           
         >
           Words from people I've worked with

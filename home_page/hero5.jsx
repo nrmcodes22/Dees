@@ -48,11 +48,11 @@ export default function Hero5()
     return () => cancelAnimationFrame(raf);
   }, []);
     return (
-        <section className="lg:pt-[131px] px-[clamp(20px,6vw,120px)]  pt-[44px]  pb-[34px] bg-white">
+        <section className="lg:pt-[131px] px-[clamp(20px,4vw,120px)]  pt-[44px]  pb-[34px] bg-white">
       {/* Heading */}
       <div 
       className=" flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-10">
-        <h2 className="text-lg md:text-2xl lg:text-[1.75rem] font-medium text-black whitespace-nowrap">
+        <h2 className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
             From my feed
         </h2>
 
@@ -61,7 +61,7 @@ export default function Hero5()
       <div className="flex flex-col mb-24">
         <div className="md:order-2 md:flex gap-20">
           <p className="font-[300] text-[#6D7876]  text-[clamp(16px,2vw,28px)] md:tracking-tight leading-normal">For the past few years, I’ve been sharing my design journey through short videos, I break down projects, share lessons I’ve learned, and document the process that shapes my work. It’s a space where I keep exploring new ways to make design approachable. You can explore more of this journey on Instagram.</p>
-        <a href="/" className="w-fit h-fit inline-flex items-center justify-center gap-2 mt-8 md:mt-0 bg-[#570202] px-[clamp(10px,12vw,38px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[clamp(18px,4vw,20px)] tracking-tight text-white leading-none whitespace-nowrap select-none touch-manipulation lg:self-end">
+        <a href="/" className="w-fit h-fit inline-flex items-center justify-center gap-1 mt-8 md:mt-0 bg-[#570202] px-[clamp(10px,8vw,38px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[clamp(18px,4vw,20px)] tracking-tight text-white leading-none whitespace-nowrap select-none touch-manipulation lg:self-end">
   <img
     src="/images/icons/InstagramLogo.png"
     alt=""

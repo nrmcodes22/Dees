@@ -69,11 +69,11 @@ const steps1 = [
 export default function Process() {
   
   return (
-    <section className="hidden md:block pt-[131px] px-[clamp(20px,6vw,120px)] bg-white">
+    <section className="hidden md:block pt-[50px] px-[clamp(20px,4vw,120px)] bg-white">
       {/* Heading */}
       <div className=" flex items-center gap-4  mb-8">
           <h2 
-            className="text-2xl font-normal text-black whitespace-nowrap">
+            className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
             Client Process
           </h2>
           <div className="flex-1 h-px bg-[#989898]">
@@ -81,33 +81,60 @@ export default function Process() {
         </div>
 
       {/* Timeline */}
-      <div className=" relative flex justify-center items-start ">
-        {steps.map((step, i) => (
-          <div key={i} className="flex-1 text-center  px-4 ">
-            {/* Circle + Connector */}
-            <div className="relative flex justify-start  mb-6 ml-10">
-              
-              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#570202] text-white text-3xl font-light z-3 ">
-                {step.number}
-              </div>
-
-              {/* Line (except last step) */}
-              {i !== steps.length - 1 && (
-                <div className="absolute top-1/2  left-20 right-0 w-full h-[1px] bg-black  "></div>
-              )}
-            </div>
-
-            {/* Title + Description */}
-            <h3 className="font-semibold text-gray-900 mb-2 text-left text-xl">{step.title}</h3>
-            <p className="text-gray-600 text-lg leading-relaxed text-left  w-full">
-              {step.description}
-            </p>
-          </div>
-        ))}
+      <div className="relative flex w-full ">
+  {steps.map((step, i) => (
+    <div
+      key={i}
+      className="relative  flex flex-1 flex-col items-center"
+    >
+      {/* Circle */}
+      <div className="relative z-10 mb-6">
+        <div
+          className="
+            w-[clamp(62px,6vw,108px)]
+            h-[clamp(62px,6vw,108px)]
+            flex items-center justify-center
+            rounded-full bg-[#570202] text-white
+            text-[clamp(30px,2.5vw,52px)]
+            font-[400]
+          "
+        >
+          {step.number}
+        </div>
       </div>
+
+      {/* Connector line */}
+      {i !== steps.length - 1 && (
+        <span
+          className="
+            absolute
+            top-[calc(clamp(62px,6vw,90px)/2)]
+            left-1/2
+            -right-1/2
+            h-px bg-black
+          "
+        />
+      )}
+
+      {/* Title */}
+      <div className="text-left max-w-[95%]">
+        <h3 className="font-semibold text-black mb-2 text-[clamp(18px,1.5vw,28px)]">
+        {step.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-[#6D7876] text-[clamp(16px,1vw,22px)] leading-[clamp(16px,1.3vw,22px)] max-w-[90%] lg:max-w-[15vw] font-[300]">
+        {step.description}
+      </p>
+      </div>
+    </div>
+  ))}
+      </div>
+
+
        <div className=" flex items-center gap-4 mt-[131px] mb-8">
           <h2 
-            className="text-2xl font-normal text-black whitespace-nowrap">
+            className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
             Design Process
           </h2>
           <div className="flex-1 h-px bg-[#989898]">
@@ -117,15 +144,16 @@ export default function Process() {
         {steps1.map((step, i) => (
           <div key={i} className="flex items-start gap-4">
             {/* Number circle */}
-            <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#570202] text-white text-2xl font-light">
+            <div className="flex-shrink-0 w-[clamp(62px,5vw,72px)]
+            h-[clamp(62px,5vw,72px)] flex items-center justify-center rounded-full bg-[#570202] text-white  text-[clamp(30px,1.5vw,52px)] font-[400]">
               {step.number}
             </div>
             {/* Text */}
             <div>
-              <h3 className="font-semibold text-2xl text-gray-900 mb-2">
+              <h3 className="font-semibold text-[clamp(18px,2.2vw,28px)] text-black mb-1">
                 {step.title}
               </h3>
-              <p className="text-[#6D7876] text-xl leading-relaxed">
+              <p className="text-[#6D7876] text-[clamp(18px,1.5vw,22px)]  tracking-tight leading-[clamp(18px,2vw,22px)] font-[300]">
                 {step.description}
               </p>
             </div>

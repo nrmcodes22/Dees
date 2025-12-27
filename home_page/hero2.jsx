@@ -55,11 +55,11 @@ const projects = [
 
 export default function Hero2() {
   return (
-    <section className="lg:pt-[131px]  pt-[44px] px-[clamp(20px,6vw,120px)] pb-[34px] bg-white">
+    <section className="lg:pt-[131px]  pt-[44px] px-[clamp(20px,4vw,120px)] pb-[34px] bg-white">
       {/* Heading */}
       <div 
       className=" flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-[21px] md:mb-[60px] lg:mb-[87px]">
-        <h2 className="text-lg md:text-2xl lg:text-[1.75rem] font-medium text-black whitespace-nowrap">
+        <h2 className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
             Projects you can dive into
         </h2>
 
@@ -97,12 +97,12 @@ export default function Hero2() {
     ></div>
   </div>
 
-            <div className="">
-            <div className="absolute bottom-1 left-2 md:bottom-2 lg:bottom-3 lg:left-3 text-white w-[80%]">
+            <div className="flex ">
+            <div className="absolute bottom-1  md:bottom-2 lg:bottom-3  px-[clamp(6px,1.4vw,12px)] text-white w-[80%]">
               <h3 className="text-[16px] md:text-[18px] lg:text-[22px] font-[500] mb-[-5px]">{project.title}</h3>
-              <p className="text-[#C6C6C6] lg:w-full text-[8px] md:text-[14px]  lg:text-[16px] font-[300] leading-normal ">{project.category}</p>
+              <p className="text-[#C6C6C6]  text-[8px] md:text-[14px]  lg:text-[16px] font-[300] leading-normal line-clamp-2">{project.category}</p>
             </div>
-            <div className="absolute bottom-1 md:bottom-2 right-2  lg:bottom-3 lg:right-3 font-[300] text-[8px] md:text-[14px] lg:text-[16px]  text-[#C6C6C6]  leading-normal">
+            <div className="absolute bottom-1 md:bottom-2 right-2  lg:bottom-3 lg:right-3 font-[300]   text-[#C6C6C6] text-[clamp(8px,2vw,16px)]  leading-normal">
               {project.year}
             </div>
             </div>
