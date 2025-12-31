@@ -136,7 +136,7 @@ export default function ProcessSteps() {
             <div className="relative px-6 min-w-[350px] ">
   
   {/* Single vertical line */}
-  <div className="absolute left-17 top-7 bottom-[clamp(32px,12vh,200px)]   w-px bg-black"></div>
+  <div className="absolute left-17 top-7 bottom-28   w-px bg-black"></div>
 
   {/* Steps */}
   <div className="flex flex-col gap-25 ">
