@@ -97,7 +97,7 @@ export default function ProcessSteps() {
       {/* Content */}
       <div className="mt-24">
         {active === 'client' && (
-          <div className="relative px-6">
+          <div className="relative px-6 min-w-[350px] ">
   
   {/* Single vertical line */}
   <div className="absolute left-17 top-7 bottom-9 w-px bg-black"></div>
@@ -133,13 +133,13 @@ export default function ProcessSteps() {
         {active === 'design' && (
           <div>
             {/* Design Process content */}
-            <div className="relative px-6">
+            <div className="relative px-6 min-w-[350px] ">
   
   {/* Single vertical line */}
-  <div className="absolute left-17 top-7 bottom-20 w-px bg-black"></div>
+  <div className="absolute left-17 top-7 bottom-[clamp(32px,12vh,200px)]   w-px bg-black"></div>
 
   {/* Steps */}
-  <div className="flex flex-col gap-25">
+  <div className="flex flex-col gap-25 ">
     {steps1.map((step, i) => (
       <div key={i} className="flex gap-4 relative">
         
