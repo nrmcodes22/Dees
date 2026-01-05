@@ -68,7 +68,7 @@ export default function Navbar() {
 
   {/* Desktop Menu */}
   <motion.div
-  className="hidden md:flex flex-grow justify-end gap-x-[clamp(16px,2vw,72px)]
+  className="hidden md:flex flex-grow justify-end gap-x-[clamp(16px,3vw,72px)]
 "
   variants={menuContainer}
   initial="hidden"
