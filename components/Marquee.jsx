@@ -10,7 +10,7 @@ export default function Marquee({ text }) {
     .fill(text)
     .map((t, i) => (
       <React.Fragment key={i}>
-        <span className="font-[300] text-[clamp(18px,2vw,28px)]">{t}</span>
+        <span className="font-[300] text-[clamp(18px,0.5vw,28px)]">{t}</span>
         <Image
           src="/images/star.png"
           alt="star"
