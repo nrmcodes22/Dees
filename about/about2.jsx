@@ -4,7 +4,7 @@ export default function About2() {
     return (
         <section className="lg:pt-[74px] pt-[20px]  pb-[34px] px-[clamp(20px,4vw,120px)]  bg-white">
            <div className='grid grid-cols-2 gap-1.5 '>
-                <img src="/images/about/frame15.png" className='aspect-[9/10]  rounded-[6px]'/>
+                <img src="/images/about/frame15.png" className='  rounded-[6px]'/>
                 <div className='grid md:grid-cols-2 gap-1.5' >
                     <img src="/images/about/frame18.png" className='aspect-[3/3] rounded-[6px]'/> <img src="/images/about/frame17.png" className='aspect-[1/1] rounded-[6px]'/>
                 </div>

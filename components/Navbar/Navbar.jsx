@@ -80,7 +80,7 @@ export default function Navbar() {
       href={item.href}
       className={`relative ${pathname === item.href 
               ? "text-[#FFE7E7]"      // ACTIVE
-              : "text-white"}  text-[clamp(18px,2vw,24px)] leading-normal tracking-[-0.03em] font-[400] font-worksans lg:p-2 p-1`}
+              : "text-white"}  text-[clamp(18px,2vw,24px)] leading-normal tracking-[-0.03em] font-[300] font-worksans lg:p-2 p-1`}
       variants={menuItem}
       whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300 } }}
     >
