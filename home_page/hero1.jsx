@@ -10,7 +10,7 @@ export default function Hero1() {
     <div className="flex flex-col items-center text-center bg-[#570202]">
       <h1
         className="
-          mt-[clamp(233px,5vw,274px)]
+          mt-[clamp(233px,2vw,274px)]
           text-[clamp(28px,4.5vw,92px)]
           font-medium text-white
           leading-[clamp(30px,5vw,84px)]
@@ -33,7 +33,7 @@ export default function Hero1() {
       </h1>
 
       {/* Marquee */}
-      <div className="w-full mb-40 md:mb-48 lg:mb-64">
+      <div className="w-full mb-[clamp(158px,1.5vw,254px)]">
         <Marquee text="I’ve got a thing for great brands, so I design them" />
       </div>
     </div>
