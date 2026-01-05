@@ -10,7 +10,7 @@ export default function Hero1() {
     <div className="flex flex-col items-center text-center bg-[#570202]">
       <h1
         className="
-          mt-48
+          mt-[clamp(233px,5vw,274px)]
           text-[clamp(28px,4.5vw,92px)]
           font-medium text-white
           leading-[clamp(30px,5vw,84px)]
