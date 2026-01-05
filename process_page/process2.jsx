@@ -153,7 +153,7 @@ export default function Process() {
               <h3 className="font-semibold text-[clamp(18px,2.2vw,28px)] text-black mb-1">
                 {step.title}
               </h3>
-              <p className="text-[#6D7876] text-[clamp(18px,1.5vw,22px)]  tracking-tight leading-[clamp(18px,2vw,22px)] font-[300]">
+              <p className="text-[#6D7876] text-[clamp(18px,1vw,22px)]  tracking-tight leading-[clamp(18px,2vw,22px)] font-[300]">
                 {step.description}
               </p>
             </div>
