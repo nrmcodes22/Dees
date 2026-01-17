@@ -16,7 +16,7 @@ export default function Hero1() {
           leading-[clamp(30px,5vw,84px)]
           
           mb-20 md:mb-20 lg:mb-32
-           max-w-full sm:max-w-[55%] md:max-w-[70%]
+           max-w-full mx-3 sm:max-w-[55%] md:max-w-[70%]
         "
       >
         {/* Desktop + Tablet version (2 lines, 6 words per line) */}

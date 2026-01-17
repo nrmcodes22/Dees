@@ -2,16 +2,23 @@
 import React from 'react'
 export default function About3(){
     return (
-        <section className="py-6 px-24 bg-white">
-        <div className="flex items-center gap-4 mt-[131px] mb-8">
-          <h2 
-            className="text-2xl font-normal text-black whitespace-nowrap">
-            Outside of design
-          </h2>
-          <div className="flex-1 h-px bg-[#989898]">
-            </div>
-        </div>
-        <div className="grid grid-cols-5 grid-rows-2  gap-4 mt-20 mb-20 lg:h-[700px] md:h-[400px] font-light">
+        <section className="lg:pt-[74px] px-[clamp(20px,4vw,120px)]  pt-[44px]  pb-[34px] bg-white">
+         <div
+        className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-10"
+        
+      >
+        <h2
+          className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap"
+          
+        >
+          Outside of design
+        </h2>
+        <div
+          className="flex-1 h-px bg-[#989898]"
+         
+        />
+      </div>
+        <div className="grid grid-cols-5 grid-rows-2  gap-2 mb-20 lg:h-[700px] md:h-[400px] font-light">
             {/* Row 1 */}
             <div className="relative rounded-lg overflow-hidden row-span-2 col-span-2">
                 <img src="/images/about/read.jpg" alt="Reading" className="w-full h-full object-cover" />
