@@ -51,7 +51,7 @@ export default function Project2() {
     image: "/images/project/culture.png",
   },
   {
-    title: "Ask Hally",
+    title: "Ask Haily",
     category: "Logo Design",
     year: 2025,
     image: "/images/project/askhally.png",
@@ -133,26 +133,26 @@ export default function Project2() {
   // 
 ];
 return (
-    <section className="py-6 px-8 md:px-20 bg-white">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-20 mb-20">
+    <section className="hidden md:block pt-[50px] px-[clamp(20px,4vw,120px)] bg-white">
+        <div className="grid grid-cols-4 gap-6  mb-20">
         {projects.map((project, index) => (
           <div
             key={index}
             className=""
           >
-            <div className="md:h-72 w-full overflow-hidden">
+            <div className="w-full overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover rounded-md"
+                className=" object-cover rounded-md"
               />
             </div>
             <div className="py-4">
               {/* Title & Year same line */}
-              <h3 className="text-xl font-semibold text-black">
+              <h3 className="text-[clamp(13px,1.5vw,26px)] font-[500] tracking-tighter leading-[90%] text-black w-full">
                   {project.title}
                 </h3>
-              <div className="flex justify-between items-center font-medium text-[#989898] text-lg">
+              <div className="flex justify-between items-center font-[400] text-[#989898] text-[clamp(12px,1.5vw,21px)]">
                 <p className="">{project.category}</p>
                 <p className="">{project.year}</p>
               </div>

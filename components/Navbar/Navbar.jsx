@@ -2,11 +2,13 @@
 import React , { useState , useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import {usePathname} from "next/navigation"
 import { motion ,AnimatePresence} from "framer-motion";
 
 export default function Navbar() {
   const pathname = usePathname();
+   const isContact = pathname === "/contact";
   const [menuOpen, setMenuOpen] = useState(false);
   // Container for stagger effect
   const menuContainer = {
@@ -44,16 +46,37 @@ export default function Navbar() {
 
   return (
     <nav
-  className="bg-[#570202]  text-white flex items-center justify-between relative
+  className={`  text-white flex items-center justify-between relative
   px-[clamp(1.25rem,6vw,9rem)]
-  py-[clamp(1.25rem,3vw,3rem)]"
+  py-[clamp(1.25rem,3vw,3rem)] ${isContact
+          ? "bg-white"
+          : "bg-[#570202] "} md:bg-[#570202]`}
 >
  {/* Logo with animation */}
+ 
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-    className="flex items-center"
+    className={ ` md:hidden flex items-center`}
+  >
+    <Link href="/" className="inline-block">
+     <Image
+  src={isContact ? "/images/Dees2.png" : "/images/Dees.png"}
+  alt="Dees Logo"
+  width={100}
+  height={100}
+  className="w-22 h-8 mt-6 md:mt-0"
+/>
+
+    </Link>
+    
+  </motion.div>
+<motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+    className={ ` hidden md:flex items-center`}
   >
     <Link href="/" className="inline-block">
      <Image
@@ -63,12 +86,13 @@ export default function Navbar() {
   height={100}
   className="w-22 h-8 mt-6 md:mt-0"
 />
-    </Link>
-  </motion.div>
 
+    </Link>
+    
+  </motion.div>
   {/* Desktop Menu */}
   <motion.div
-  className="hidden md:flex flex-grow justify-end gap-x-[clamp(16px,3vw,72px)]
+  className="hidden md:flex flex-grow justify-end gap-x-[clamp(16px,3vw,72px)] 
 "
   variants={menuContainer}
   initial="hidden"
@@ -98,10 +122,13 @@ export default function Navbar() {
 
 
   {/* Mobile Hamburger */}
-  <div className="md:hidden flex items-center mt-6 md:mt-0">
+  <div className="md:hidden flex items-center mt-6 md:mt-0 "
+    
+  >
   <button onClick={() => setMenuOpen(!menuOpen)}>
     <Image
-      src="/images/pumpkin.png"
+      
+      src={isContact ? "/images/pumclose.png" : "/images/pumpkin.png"}
       alt="Menu"
       width={40}
       height={40}
