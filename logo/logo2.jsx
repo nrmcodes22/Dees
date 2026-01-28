@@ -61,17 +61,17 @@ export default function logo2() {
     return () => observer.disconnect();
   }, []);
     return(
-       <div className="min-h-screen bg-black">
-      <section className="pt-[20px] px-[clamp(10px,2vw,120px)] pb-[34px] bg-black">
-        <div className="grid grid-cols-3 md:grid-cols-5 justify-items-center max-w-[1400px] md:mx-auto">
+       <div className="min-h-screen pt-10 md:pt-20 bg-black">
+      <section className=" px-[clamp(10px,2vw,120px)] pb-[34px] bg-black">
+        <div className="grid grid-cols-3 md:grid-cols-5 justify-items-center md:mx-auto gap-y-24 md:gap-y-[200px] gap-x-6 md:gap-x-12">
           {logos.map((logo, index) => (
             <div
               key={index}
               ref={(el) => (logoRefs.current[index] = el)}
               data-index={index}
-              className={`flex justify-center p-[clamp(20px,4vw,40px)] transition-all duration-700 ease-out ${
+              className={` px-6.5 md:px-0  flex justify-center  transition-all duration-700 ease-out ${
                 visibleLogos.has(index)
-                  ? 'opacity-100 translate-y-0 scale-100'
+                  ? 'opacity-100 translate-y-0 scale-120'
                   : 'opacity-0 translate-y-8 scale-95'
               }`}
               style={{
@@ -81,7 +81,7 @@ export default function logo2() {
               <img
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="h-full w-full grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 "
               />
             </div>
           ))}
