@@ -98,7 +98,7 @@ export default function logo2() {
               <img
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                className="w-full h-full object-fit grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
               />
             </div>
           ))}
