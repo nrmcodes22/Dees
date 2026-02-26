@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 // ── 9 Category Arrays ─────────────────────────────────────────────────────────
@@ -88,6 +88,8 @@ function LoopingCard({ category }) {
   const [hovered, setHovered] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const items = category.items;
+  const touchTimer = useRef(null);
+  const isTouchHold = useRef(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,12 +98,30 @@ function LoopingCard({ category }) {
     return () => clearInterval(interval);
   }, [items.length]);
 
+  const handleTouchStart = useCallback(() => {
+    touchTimer.current = setTimeout(() => {
+      isTouchHold.current = true;
+      setHovered(true);
+    }, 200);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    clearTimeout(touchTimer.current);
+    if (isTouchHold.current) {
+      isTouchHold.current = false;
+      setHovered(false);
+    }
+  }, []);
+
   return (
     <div
       className="relative overflow-hidden cursor-pointer"
       style={{ aspectRatio: '1/1' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       onClick={() => router.push('/logos')}
     >
       {/* All images stacked — only currentIdx is visible, others stay rendered underneath */}
@@ -145,6 +165,23 @@ function LoopingCard({ category }) {
 function CategoryCard({ category, onClick }) {
   const [hovered, setHovered] = useState(false);
   const bgImage = category.items[0].image;
+  const touchTimer = useRef(null);
+  const isTouchHold = useRef(false);
+
+  const handleTouchStart = useCallback(() => {
+    touchTimer.current = setTimeout(() => {
+      isTouchHold.current = true;
+      setHovered(true);
+    }, 200);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    clearTimeout(touchTimer.current);
+    if (isTouchHold.current) {
+      isTouchHold.current = false;
+      setHovered(false);
+    }
+  }, []);
 
   return (
     <div
@@ -152,6 +189,9 @@ function CategoryCard({ category, onClick }) {
       style={{ aspectRatio: '1/1' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       onClick={() => onClick(category)}
     >
       {/* Background image: subtle zoom on hover */}
