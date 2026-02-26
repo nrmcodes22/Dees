@@ -49,7 +49,7 @@ export default function Contact() {
         
           <div className="flex flex-col md:flex md:flex-row md:justify-between  gap-8 md:gap-0">
             {/* Left Column - Intro */}
-            <div className="flex flex-col md:w-[45%] space-y-6 ">
+            <div className="flex flex-col md:w-[38%] space-y-6 ">
               <h1 className="text-4xl font-normal text-black">Well, Hey!</h1>
               
               <div className="space-y-4 text-[#6D7876]">
@@ -86,7 +86,7 @@ export default function Contact() {
 
             {/* Right Column - Form */}
             
-              <div className="rounded-lg md:w-[48%] border-gray-300 border-1 py-4 px-2 md:py-8 md:px-6">
+              <div className="rounded-lg md:w-[55%] border-gray-300 border-1 py-4 px-2 md:py-8 md:px-6">
                 <div className="space-y-6 text-black">
                   {/* Name Section */}
                   <div>

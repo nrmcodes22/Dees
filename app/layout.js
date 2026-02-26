@@ -6,7 +6,7 @@ import { Work_Sans } from "next/font/google";
 
 const geist = Geist({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], 
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-geist",
 });
 
@@ -26,10 +26,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geist.variable} ${workSans.variable} ${geist.className} min-h-screen flex flex-col`}>
         <Navbar />
-        <main className="flex-1 bg-white">
-            {children}
+        <main className="flex-1">
+          {children}
         </main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
