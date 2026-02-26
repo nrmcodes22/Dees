@@ -79,13 +79,13 @@ export default function logo2() {
   return (
     <div className="min-h-screen py-10 md:py-20 lg:py-30 bg-[#0f0f0f]">
       <section className=" bg-[#0f0f0f]">
-        <div className="grid grid-cols-3 md:grid-cols-5 justify-items-center gap-x-6 gap-y-16 md:gap-x-8 md:gap-y-24 lg:gap-x-10 lg:gap-y-32">
+        <div className="grid grid-cols-3 md:grid-cols-5 justify-items-center gap-x-6 gap-y-20 md:gap-x-8 md:gap-y-28 lg:gap-x-10 lg:gap-y-36">
           {logos.map((logo, index) => (
             <div
               key={index}
               ref={(el) => (logoRefs.current[index] = el)}
               data-index={index}
-              className={`w-full aspect-square max-w-[170px] p-2 flex items-center justify-center`}
+              className={`w-full aspect-square max-w-[170px] p-1 flex items-center justify-center`}
               style={{
                 opacity: visibleLogos.has(index) ? 1 : 0,
                 transform: visibleLogos.has(index)
