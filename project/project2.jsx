@@ -242,7 +242,7 @@ export default function Project2() {
 
   return (
     <>
-      <section className="pt-[50px] pb-20 px-[clamp(20px,4vw,120px)] bg-[#0f0f0f]">
+      <section className=" py-12 md:py-24 px-[clamp(20px,4vw,120px)] bg-[#0f0f0f]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => {
             const isLast = i === categories.length - 1;
