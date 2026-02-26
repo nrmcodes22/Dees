@@ -78,7 +78,7 @@ export default function logo2() {
 
   return (
     <div className="min-h-screen py-10 md:py-20 lg:py-30 bg-[#0f0f0f]">
-      <section className="px-6 md:px-14 bg-[#0f0f0f]">
+      <section className="px-4 xl:px-14 bg-[#0f0f0f]">
         <div className="grid grid-cols-3 md:grid-cols-5 justify-items-center gap-x-6 gap-y-16 md:gap-x-8 md:gap-y-24 lg:gap-x-10 lg:gap-y-32">
           {logos.map((logo, index) => (
             <div
