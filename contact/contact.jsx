@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 export default function Contact() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -20,35 +21,40 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState('success'); // 'success' or 'error'
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+  e.preventDefault();
+  setIsSubmitting(true);
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    if (res.ok) {
+      setFormData({
+        firstName: '', lastName: '', email: '', countryCode: '+91',
+        phone: '', budget: '', website: '', brandName: '',
+        timeframe: '', services: '', findMe: '', description: ''
       });
-      if (res.ok) {
-        setPopupType('success');
-        setShowPopup(true);
-        setFormData({
-          firstName: '', lastName: '', email: '', countryCode: '+91',
-          phone: '', budget: '', website: '', brandName: '',
-          timeframe: '', services: '', findMe: '', description: ''
-        });
-      } else {
-        setPopupType('error');
-        setShowPopup(true);
-      }
-    } catch (err) {
-      console.error(err);
+      setPopupType('success');
+      setShowPopup(true);
+      setIsSubmitting(false); // ← stops spinner exactly when popup appears
+    } else {
       setPopupType('error');
       setShowPopup(true);
+      setIsSubmitting(false);
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setPopupType('error');
+    setShowPopup(true);
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <>
@@ -160,48 +166,55 @@ export default function Contact() {
 
                 {/* Phone Number Section */}
                 <div>
-                  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
-                    Phone No.
-                  </label>
-                  <div className="flex gap-2">
-                    <select
-                      name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
-                      className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white"
-                    >
-                      <option>+91</option>
-                      <option>+1</option>
-                      <option>+44</option>
-                      <option>+61</option>
-                    </select>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
-                    />
-                  </div>
-                </div>
+  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
+    Phone No.
+  </label>
+
+  <PhoneInput
+    country={"in"}
+    value={formData.phone}
+    onChange={(phone) =>
+      setFormData((prev) => ({ ...prev, phone }))
+    }
+    inputClass="!w-full !py-3 !pl-14 !border-gray-300 !rounded-md"
+    containerClass="!w-full"
+    buttonClass="!border-gray-300"
+  />
+</div>
 
                 {/* Budget Section */}
                 <div>
-                  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
-                    Your Budget <span className="text-sm font-normal text-[#6D7876]">(required)</span>
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6D7876]">$</span>
-                    <input
-                      type="text"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
-                      required
-                    />
-                  </div>
-                </div>
+  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
+    Your Budget <span className="text-sm font-normal text-[#6D7876]">(required)</span>
+  </label>
+
+  <div className="relative">
+    <select
+      name="budget"
+      value={formData.budget}
+      onChange={handleChange}
+      className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white appearance-none"
+      required
+    >
+      <option value="">Select an option</option>
+      <option>$500 - $1000</option>
+      <option>$1000 - $2000</option>
+      <option>$2000 - $4000</option>
+      <option>$4000+</option>
+    </select>
+
+    <svg
+      className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none"
+      xmlns="/images/icons/CaretDown.svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</div>
 
                 {/* Website URL Section */}
                 <div>
@@ -234,63 +247,107 @@ export default function Contact() {
 
                 {/* Estimated Timeframe Section */}
                 <div>
-                  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
-                    Estimated timeframe <span className="text-sm font-normal text-[#6D7876]">(required)</span>
-                  </label>
-                  <select
-                    name="timeframe"
-                    value={formData.timeframe}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white"
-                    required
-                  >
-                    <option value="">Select an option</option>
-                    <option>1-2 weeks</option>
-                    <option>2-4 weeks</option>
-                    <option>1-2 months</option>
-                    <option>3+ months</option>
-                  </select>
-                </div>
+  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
+    Estimated timeframe <span className="text-sm font-normal text-[#6D7876]">(required)</span>
+  </label>
+
+  <div className="relative">
+    <select
+      name="timeframe"
+      value={formData.timeframe}
+      onChange={handleChange}
+      className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white appearance-none"
+      required
+    >
+      <option value="">Select an option</option>
+      <option>1-2 weeks</option>
+      <option>2-4 weeks</option>
+      <option>1-2 months</option>
+      <option>3+ months</option>
+    </select>
+
+    <svg
+      className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none"
+      xmlns="/images/icons/CaretDown.svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</div>
 
                 {/* Services Section */}
                 <div>
-                  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
-                    What services are you looking for? <span className="text-sm font-normal text-[#6D7876]">(required)</span>
-                  </label>
-                  <select
-                    name="services"
-                    value={formData.services}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white"
-                    required
-                  >
-                    <option value="">Select an option</option>
-                    <option>Web Development</option>
-                    <option>Mobile App Development</option>
-                    <option>UI/UX Design</option>
-                    <option>Branding</option>
-                    <option>SEO/Marketing</option>
-                  </select>
-                </div>
+  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
+    What services are you looking for? <span className="text-sm font-normal text-[#6D7876]">(required)</span>
+  </label>
+
+  <div className="relative">
+    <select
+      name="services"
+      value={formData.services}
+      onChange={handleChange}
+      className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white appearance-none"
+      required
+    >
+      <option value="">Select an option</option>
+      <option>Logo Design</option>
+      <option>Visual Identity</option>
+      <option>Packaging Design</option>
+      <option>Colateral Design</option>
+      <option>UI/UX Design</option>
+      <option>Web Development</option>
+      <option>Make Your Own Package</option>
+    </select>
+
+    <svg
+      className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none"
+      xmlns="/images/icons/CaretDown.svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</div>
 
                 {/* How Did You Find Me Section */}
                 <div>
-                  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
-                    How did you find me?
-                  </label>
-                  <select
-                    name="findMe"
-                    value={formData.findMe}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white"
-                  >
-                    <option value="">Select an option</option>
-                    <option>Google Search</option>
-                    <option>Social Media</option>
-                    <option>Referral</option>
-                    <option>Other</option>
-                  </select>
-                </div>
+  <label className="block text-[clamp(14px,5vw,26px)] font-normal text-black mb-4">
+    How did you find me?
+  </label>
+
+  <div className="relative">
+    <select
+      name="findMe"
+      value={formData.findMe}
+      onChange={handleChange}
+      className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white appearance-none"
+    >
+      <option value="">Select an option</option>
+      <option>Google Search</option>
+      <option>Social Media</option>
+      <option>Referral</option>
+      <option>Other</option>
+    </select>
+
+    <svg
+      className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</div>
 
                 {/* Brief Project Description Section */}
                 <div>
@@ -309,13 +366,40 @@ export default function Contact() {
 
                 {/* Submit Button */}
                 <div className="pt-4">
-                  <button
-                    onClick={handleSubmit}
-                    className="px-16 py-4 bg-[#570202] text-white text-lg font-normal rounded-full hover:bg-red-800 transition-colors"
-                  >
-                    Send
-                  </button>
-                </div>
+  <button
+    onClick={handleSubmit}
+    disabled={isSubmitting}
+    className="px-16 py-4 bg-[#570202] text-white text-lg font-normal rounded-full hover:bg-red-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
+  >
+    {isSubmitting ? (
+      <>
+        <svg
+          className="animate-spin h-5 w-5 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
+        </svg>
+        Sending...
+      </>
+    ) : (
+      "Send"
+    )}
+  </button>
+</div>
               </div>
             </div>
           </div>
