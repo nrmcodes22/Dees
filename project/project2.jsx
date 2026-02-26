@@ -145,7 +145,7 @@ function LoopingCard({ category }) {
       >
         <p
           className="text-white font-bold uppercase tracking-widest text-center px-4"
-          style={{ fontSize: 'clamp(11px, 3vw, 20px)', letterSpacing: '0.18em' }}
+          style={{ fontSize: 'clamp(20px, 3vw, 25px)', letterSpacing: '0.18em' }}
         >
           {category.name}
         </p>
@@ -209,7 +209,7 @@ function CategoryCard({ category, onClick }) {
       >
         <p
           className="text-white font-bold uppercase tracking-widest text-center px-4"
-          style={{ fontSize: 'clamp(11px, 3vw, 20px)', letterSpacing: '0.18em' }}
+          style={{ fontSize: 'clamp(20px, 3vw, 25px)', letterSpacing: '0.18em' }}
         >
           {category.name}
         </p>
