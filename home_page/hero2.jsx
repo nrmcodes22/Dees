@@ -98,7 +98,7 @@ export default function Hero2() {
               transition duration-500
             `}
           >
-            <div className="relative w-full aspect-square">
+            <div className="relative w-full aspect-square ">
               <Image
                 src={project.img}
                 alt={project.title}
@@ -109,7 +109,7 @@ export default function Hero2() {
               {/* Overlay */}
               <div
                 className={`
-                  absolute inset-0 transition-all duration-500
+                  absolute inset-0 transition-all duration-500 
                   ${
                     activeIndex === i
                       ? "bg-black/70"
@@ -121,7 +121,7 @@ export default function Hero2() {
               {/* Bottom Left (Title + Category) */}
               <div
                 className={`
-                  absolute bottom-4 left-4 max-w-[80%]
+                  absolute bottom-2 left-2 
                   transition-all duration-500
                   ${
                     activeIndex === i
@@ -134,7 +134,7 @@ export default function Hero2() {
                   {project.title}
                 </h3>
 
-                <p className="text-[#C6C6C6] text-sm md:text-base font-light leading-tight">
+                <p className="text-[#C6C6C6] text-sm md:text-base font-light leading-tight line-clamp-2  max-w-[70%] md:max-w-[100%]">
                   {project.category}
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function Hero2() {
               {/* Bottom Right (Year) */}
               <div
                 className={`
-                  absolute bottom-4 right-4
+                  absolute bottom-2 right-2
                   text-[#aaa] text-xs md:text-sm font-light
                   transition-all duration-500
                   ${
