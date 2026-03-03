@@ -54,7 +54,7 @@ export default function Hero3() {
     </div>
 
     {/* Right section */}
-    <a className="hidden md:flex bg-[#570202] font-worksans leading-normal font-[500] lg:rounded-[50px] lg:px-10 lg:py-4 lg:text-xl  lg:tracking-[-0.72px] md:rounded-full md:px-10 md:py-3 md:text-lg  md:tracking-[-0.42px]">
+    <a className="hidden md:flex bg-[#570202] font-worksans leading-normal font-[500] lg:rounded-[50px] lg:px-10 lg:py-4 lg:text-xl  lg:tracking-[-0.72px] md:rounded-full md:px-10 md:py-3 md:text-lg  md:tracking-[-0.42px] text-white">
       Learn more
     </a>
   </div>

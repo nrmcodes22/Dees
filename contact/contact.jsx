@@ -107,7 +107,7 @@ export default function Contact() {
               {/* Image */}
               <div className="mt-8 flex-1">
                 <img
-                  className="w-full h-64 md:h-full object-cover rounded-lg"
+                  className="w-full aspect-9/16 object-cover rounded-lg"
                   src="images/contact_page.jpg"
                   alt="Workspace with laptop"
                 />

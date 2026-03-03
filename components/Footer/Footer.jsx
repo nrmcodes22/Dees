@@ -28,10 +28,11 @@ const item = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#570202] text-white py-10   ">
+    <footer className="bg-[#570202] text-white py-10 px-2 md:px-12 lg:px-[clamp(48px,2vw,64px)]
+  ">
       
       <div 
-      className="flex justify-start mb-6 px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)]">
+      className="flex justify-start mb-6  ">
         <Image
           src="/images/avatar.png"
           alt="Profile"
@@ -43,7 +44,7 @@ export default function Footer() {
 
       {/* Grid Section */}
       <div
-        className="flex justify-between px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)]"
+        className="flex justify-between  "
         
       >
         {/* Profile Info */}
@@ -59,10 +60,10 @@ export default function Footer() {
         </div>
 
         {/* Links Section */}
-        <div className="text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,2vw,20px)]" >
+        <div className="text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,4vw,40px)]" >
           
           <div className="flex flex-col  space-y-2 md:space-y-6 ">
-            <a href="#projects" className="underline underline-offset-6 decoration-1 transition">
+            <a href="/projects" className="underline underline-offset-6 decoration-1 transition">
             Projects
           </a>
           <a href="/process" className="underline underline-offset-6
@@ -72,17 +73,17 @@ export default function Footer() {
           <a href="/packages" className="underline underline-offset-6 decoration-1 transition">
             Packages
           </a>
-          <a href="#contact" className="underline underline-offset-7
+          <a href="/contact" className="underline underline-offset-7
           decoration-1  transition">
             Contact
           </a>
           </div>
           <div className="flex flex-col  space-y-2 md:space-y-6">
-            <a href="#privacy" className="underline underline-offset-7
+            <a href="/privacy" className="underline underline-offset-7
           decoration-1  transition">
             Privacy policy
           </a>
-          <a href="#terms" className="underline underline-offset-7
+          <a href="/terms" className="underline underline-offset-7
           decoration-1 transition">
             Terms of service
           </a>
@@ -99,13 +100,13 @@ export default function Footer() {
             Interested in working together or have a question?
           </p>
           
-          <a href="/" className="w-fit h-fit inline-flex  items-center justify-center gap-2 mt-8 md:mt-0 bg-[#FCDCDC] text-[#570202] px-[clamp(10px,12vw,22px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[12px] md:text-[14px] lg:text-[clamp(14px,1.5vw,24px)] tracking-tight leading-none whitespace-nowrap select-none touch-manipulation">Send me a message!</a>
+          <a href="/contact" className="w-fit h-fit inline-flex  items-center justify-center gap-2 mt-8 md:mt-0 bg-[#FCDCDC] text-[#570202] px-[clamp(10px,12vw,22px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[12px] md:text-[14px] lg:text-[clamp(14px,1.5vw,24px)] tracking-tight leading-none whitespace-nowrap select-none touch-manipulation">Send me a message!</a>
         </div>
       </div>
 
       {/* Divider + Bottom Section */}
       <div
-        className="border-t px-6 md:px-12 lg:px-[clamp(48px,2vw,64px)] border-white mt-10 pt-6 flex flex-row items-center justify-between">
+        className="border-t   border-white mt-10 pt-6 flex flex-row items-center justify-between">
         <p className="text-[clamp(12px,1.5vw,16px)] text-white flex gap-1 items-center">
           <img src="/images/icons/c.png" className="w-[clamp(15px,2.5vw,22px)] h-[clamp(13px,2vw,20px)] " />DollamaniBehera2025
         </p>
