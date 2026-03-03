@@ -166,10 +166,10 @@ export default function Hero2() {
         <button
           onClick={() => setShowAll(!showAll)}
           className="
-            px-10 py-3 border border-[#0f0f0f]
-            text-[#0f0f0f] text-sm tracking-widest uppercase
+            px-10 py-3 border border-[#570202]
+            text-[#570202] text-sm tracking-widest uppercase
             transition-all duration-300
-            hover:bg-[#0f0f0f] hover:text-white 
+            hover:bg-[#570202] hover:text-white 
           "
         >
           {showAll ? "See Less" : "See More"}
