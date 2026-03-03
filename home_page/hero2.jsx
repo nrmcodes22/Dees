@@ -154,8 +154,9 @@ export default function Hero2() {
                       : "translate-y-6 opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100"
                   }
                 `}
-              />
-              {project.year}
+              >
+                {project.year}
+              </div>
             </div>
           </div>
         ))}
