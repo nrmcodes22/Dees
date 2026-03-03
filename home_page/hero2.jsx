@@ -2,8 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
-import {motion} from "framer-motion"
-//import Project2 from "@/project/project2"
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -59,32 +58,36 @@ const projects = [
 export default function Hero2() {
   const [showAll, setShowAll] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
-  return (
-    <section className="lg:pt-[131px]  pt-[44px] px-[clamp(20px,4vw,120px)] pb-[34px] bg-white">
-      {/* Heading */}
-      <div 
-      className=" flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-[21px] md:mb-[60px]">
-        <h2 className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
-            Projects you can dive into
-        </h2>
 
+  const handleClick = (i) => {
+    // Only allow click-to-toggle on mobile and tablet (below lg breakpoint)
+    if (window.innerWidth < 1024) {
+      setActiveIndex(activeIndex === i ? null : i);
+    }
+  };
+
+  return (
+    <section className="lg:pt-[131px] pt-[44px] px-[clamp(20px,4vw,120px)] pb-[34px] bg-white">
+      {/* Heading */}
+      <div className="flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-[21px] md:mb-[60px]">
+        <h2 className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
+          Projects you can dive into
+        </h2>
         <div className="flex-1 h-px bg-[#989898]"></div>
       </div>
 
       {/* Grid */}
-    <div
+      <div
         className="
           grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
           gap-x-3 md:gap-x-6 lg:gap-x-4 xl:gap-x-10
-          gap-y-3 md:gap-y-6 lg:gap-y-4 xl:gap-y-12 
+          gap-y-3 md:gap-y-6 lg:gap-y-4 xl:gap-y-12
         "
       >
         {projects.map((project, i) => (
           <div
             key={i}
-            onClick={() =>
-              setActiveIndex(activeIndex === i ? null : i)
-            }
+            onClick={() => handleClick(i)}
             className={`
               ${
                 i >= 6
@@ -93,53 +96,53 @@ export default function Hero2() {
                     : "hidden md:hidden lg:block"
                   : "block"
               }
-              relative group cursor-pointer
+              relative group
+              lg:cursor-default cursor-pointer
               overflow-hidden shadow-md
               transition duration-500
             `}
           >
-            <div className="relative w-full aspect-square ">
+            <div className="relative w-full aspect-square">
               <Image
                 src={project.img}
                 alt={project.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 lg:group-hover:scale-110"
               />
 
               {/* Overlay */}
               <div
                 className={`
-                  absolute inset-0 transition-all duration-500 
+                  absolute inset-0 transition-all duration-500
                   ${
                     activeIndex === i
-                      ? "bg-black/70"
-                      : "bg-black/0 md:group-hover:bg-black/70"
+                      ? "bg-black/70 lg:bg-black/0"
+                      : "bg-black/0 lg:group-hover:bg-black/70"
                   }
                 `}
               />
 
-              {/* Bottom Left (Title + Category) */}
+              {/* Bottom Left — title & category */}
               <div
                 className={`
-                  absolute bottom-2 left-2 
+                  absolute bottom-2 left-2
                   transition-all duration-500
                   ${
                     activeIndex === i
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-6 opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                      ? "translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0"
+                      : "translate-y-6 opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100"
                   }
                 `}
               >
                 <h3 className="text-white text-lg md:text-xl font-medium">
                   {project.title}
                 </h3>
-
-                <p className="text-[#C6C6C6] text-sm md:text-base font-light leading-tight line-clamp-2  max-w-[70%] md:max-w-[100%]">
+                <p className="text-[#C6C6C6] text-sm md:text-base font-light leading-tight line-clamp-2 max-w-[70%] md:max-w-full">
                   {project.category}
                 </p>
               </div>
 
-              {/* Bottom Right (Year) */}
+              {/* Bottom Right — year */}
               <div
                 className={`
                   absolute bottom-2 right-2
@@ -147,19 +150,16 @@ export default function Hero2() {
                   transition-all duration-500
                   ${
                     activeIndex === i
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-6 opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                      ? "translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0"
+                      : "translate-y-6 opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100"
                   }
                 `}
-              >
-                {project.year}
-              </div>
+              />
+              {project.year}
             </div>
           </div>
         ))}
       </div>
-
-      
 
       {/* See More button — tablet only */}
       <div className="hidden md:flex lg:hidden justify-center mt-8">
@@ -169,7 +169,7 @@ export default function Hero2() {
             px-10 py-3 border border-[#570202]
             text-[#570202] text-sm tracking-widest uppercase
             transition-all duration-300
-            hover:bg-[#570202] hover:text-white 
+            hover:bg-[#570202] hover:text-white
           "
         >
           {showAll ? "See Less" : "See More"}
