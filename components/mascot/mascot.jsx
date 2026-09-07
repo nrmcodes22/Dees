@@ -113,6 +113,8 @@ function Mascot({
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="
+        hidden
+        md:block
         absolute
         right-[8%]
         bottom-[clamp(210px,16vw,300px)]

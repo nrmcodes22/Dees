@@ -44,6 +44,7 @@ export default function Navbar() {
     { label: "Process", href: "/process" },
     { label: "Packages", href: "/package" },
     { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   // Magnetic pull for the Contact pill — mirrors the prototype's
@@ -288,45 +289,7 @@ export default function Navbar() {
             {/* Contact — same yellow pill + dot + sliding-fill treatment as
                 desktop, on a group so hover/press states line up, sized for
                 the mobile sheet's white background */}
-            <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className={`
-                group
-                relative
-                inline-flex
-                items-center
-                gap-2
-                self-start
-                overflow-hidden
-                rounded-full
-                border-[1.5px]
-                px-5
-                py-2.5
-                ml-4
-                sm:ml-6
-                text-[1.4rem]
-                font-worksans
-                font-medium
-                transition-colors
-                duration-300
-                ${isContact ? "border-[#570202] text-white" : "border-[#570202] text-[#570202]"}
-              `}
-            >
-              <span
-                className={`
-                  absolute
-                  inset-0
-                  z-0
-                  transition-transform
-                  duration-[350ms]
-                  ease-out
-                  ${isContact ? "translate-y-0 bg-[#570202]" : "translate-y-[101%] group-hover:translate-y-0 bg-[#570202]"}
-                `}
-              />
-              <span className="relative z-10 h-1.5 w-1.5 rounded-full bg-current" />
-              <span className="relative z-10">Contact</span>
-            </Link>
+            
           </motion.div>
         )}
       </AnimatePresence>
