@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-
+import {companies} from './projectdata'
 // ── Logo Loop (first card) ──────────────────────────────────────────────────
 
 const logoLoop = [
@@ -13,112 +13,7 @@ const logoLoop = [
 
 // ── 8 Company Projects ──────────────────────────────────────────────────────
 
-export const companies = [
-  {
-    name: 'Evolvix IQ',
-    slug: 'evolvix-iq',
-    industry: 'Technology',
-    description: 'Evolvix IQ is an AI-powered analytics platform built to transform raw data into actionable business intelligence. The brand needed a visual identity that felt cutting-edge yet approachable, blending precision with innovation.',
-    image: '/images/project/evolvix.png',
-    gallery: [
-      '/images/project/evolvix.png',
-      '/images/project/machlee.png',
-      '/images/project/preston.png',
-      '/images/project/uvxyz.png',
-    ],
-  },
-  {
-    name: 'Culture Concept',
-    slug: 'culture-concept',
-    industry: 'Interior Design',
-    description: 'Culture Concept Interior Solutions transforms spaces into experiences. Their brand identity needed to reflect the harmony between modern aesthetics and cultural heritage that defines their design philosophy.',
-    image: '/images/project/culture.png',
-    gallery: [
-      '/images/project/culture.png',
-      '/images/project/veyora.png',
-      '/images/project/ecobloom.png',
-      '/images/project/housepetals.png',
-    ],
-  },
-  {
-    name: 'Veyora',
-    slug: 'veyora',
-    industry: 'Fashion & Lifestyle',
-    description: 'Veyora is a contemporary fashion label redefining luxury through sustainability. The brand demanded a visual language that balanced elegance with environmental consciousness.',
-    image: '/images/project/veyora.png',
-    gallery: [
-      '/images/project/veyora.png',
-      '/images/project/vastra.png',
-      '/images/project/lushkart.png',
-      '/images/project/klairnet.png',
-    ],
-  },
-  {
-    name: 'Sweet Hat Dough Co.',
-    slug: 'sweet-hat-dough',
-    industry: 'Food & Beverage',
-    description: 'Sweet Hat Dough Co. is an artisanal bakery brand with a playful spirit. From packaging to social media, every touchpoint needed to feel handcrafted, warm, and irresistibly inviting.',
-    image: '/images/project/sweethat.png',
-    gallery: [
-      '/images/project/sweethat.png',
-      '/images/project/flrno.png',
-      '/images/project/fridgefriend.png',
-      '/images/project/comingsoon.png',
-    ],
-  },
-  {
-    name: 'Preston',
-    slug: 'preston',
-    industry: 'Real Estate',
-    description: 'Preston is a premium real estate development firm. Their identity needed to communicate trust, sophistication, and the promise of exceptional living spaces.',
-    image: '/images/project/preston.png',
-    gallery: [
-      '/images/project/preston.png',
-      '/images/project/culture.png',
-      '/images/project/machlee.png',
-      '/images/project/evolvix.png',
-    ],
-  },
-  {
-    name: 'Eco Bloom',
-    slug: 'eco-bloom',
-    industry: 'Sustainability',
-    description: 'Eco Bloom is an environmental initiative focused on urban greening and sustainable living. The brand identity captures growth, nature, and the optimism of a greener future.',
-    image: '/images/project/ecobloom.png',
-    gallery: [
-      '/images/project/ecobloom.png',
-      '/images/project/housepetals.png',
-      '/images/project/vastra.png',
-      '/images/project/uvxyz.png',
-    ],
-  },
-  {
-    name: 'Fridge Friend',
-    slug: 'fridge-friend',
-    industry: 'Consumer Tech',
-    description: 'Fridge Friend is a smart kitchen companion app that reduces food waste. The brand needed to feel approachable and tech-savvy, making sustainability feel effortless and fun.',
-    image: '/images/project/fridgefriend.png',
-    gallery: [
-      '/images/project/fridgefriend.png',
-      '/images/project/askhally.png',
-      '/images/project/ztrady.png',
-      '/images/project/qubesolve.png',
-    ],
-  },
-  {
-    name: 'Machlee ROV',
-    slug: 'machlee-rov',
-    industry: 'Marine Engineering',
-    description: 'Machlee ROV develops underwater remotely operated vehicles for deep-sea exploration. The brand identity needed to convey precision engineering, adventure, and the mystery of the deep ocean.',
-    image: '/images/project/machlee.png',
-    gallery: [
-      '/images/project/machlee.png',
-      '/images/project/evolvix.png',
-      '/images/project/flrno.png',
-      '/images/project/sweethat.png',
-    ],
-  },
-];
+
 
 // ── Combined entries (logo loop first, then companies) ──────────────────────
 

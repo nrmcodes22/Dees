@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useState,useEffect, useRef } from "react";
+import SectionHeading from "./SectionHeading";
+import { revealSpring, viewportOnce, pressSpring } from "./motion";
 const feedImages = [
   "/images/projectdivehero/Frame4.png",
   "/images/projectdivehero/Frame41.png",
@@ -48,29 +50,29 @@ export default function Hero5()
     return () => cancelAnimationFrame(raf);
   }, []);
     return (
-        <section className="lg:pt-[131px] px-[clamp(20px,4vw,120px)]  pt-[44px]  pb-[34px] bg-white">
-      {/* Heading */}
-      <div 
-      className=" flex items-center lg:gap-[16px] md:gap-[34px] gap-[6px] mb-10">
-        <h2 className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap">
-            From my feed
-        </h2>
-
-        <div className="flex-1 h-px bg-[#989898]"></div>
-      </div>
+      <section className="lg:pt-[131px] px-[clamp(20px,4vw,120px)] pt-[44px] pb-[34px] bg-white">
+  <SectionHeading>From my feed</SectionHeading>
       <div className="flex flex-col mb-24">
-        <div className="md:order-2 md:flex gap-20">
+        <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={viewportOnce}
+      transition={revealSpring}
+      className="md:order-2 md:flex gap-20"
+    >
           <p className="font-[300] text-[#6D7876]  text-[clamp(16px,2vw,28px)] md:tracking-tight leading-normal">For the past few years, I’ve been sharing my design journey through short videos, I break down projects, share lessons I’ve learned, and document the process that shapes my work. It’s a space where I keep exploring new ways to make design approachable. You can explore more of this journey on Instagram.</p>
-        <a href="/" className="w-fit h-fit inline-flex items-center justify-center gap-1 mt-8 md:mt-0 bg-[#570202] px-[clamp(10px,8vw,38px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[clamp(18px,4vw,20px)] tracking-tight text-white leading-none whitespace-nowrap select-none touch-manipulation lg:self-end">
-  <img
-    src="/images/icons/InstagramLogo.png"
-    alt=""
-    className="h-6 w-6 lg:h-8 lg:w-8 block"
-  />
-  <span>My Instagram</span>
-</a>
+        <motion.a
+        whileHover={{ y: -3 }}
+        whileTap={{ scale: 0.96 }}
+        transition={pressSpring}
+        href="/"
+        className="w-fit h-fit inline-flex items-center justify-center gap-1 mt-8 md:mt-0 bg-[#570202] px-[clamp(10px,8vw,38px)] py-[clamp(8px,3vw,20px)] rounded-full font-worksans font-[500] text-[clamp(18px,4vw,20px)] tracking-tight text-white leading-none whitespace-nowrap select-none touch-manipulation lg:self-end"
+      >
+        <img src="/images/icons/InstagramLogo.png" alt="" className="h-6 w-6 lg:h-8 lg:w-8 block" />
+        <span>My Instagram</span>
+      </motion.a>
 
-        </div>
+        </motion.div>
         
          {/* ================= MOBILE SLIDER ================= */}
       <div className="md:hidden mt-20">

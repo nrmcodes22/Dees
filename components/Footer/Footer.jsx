@@ -43,10 +43,7 @@ export default function Footer() {
       </div>
 
       {/* Grid Section */}
-      <div
-        className="flex justify-between  "
-        
-      >
+     <div className="flex flex-row md:justify-between gap-8 md:gap-0">
         {/* Profile Info */}
         <div className="">
           <h3 className="font-semibold text-[clamp(16px,2vw,28px)] tracking-tight">Dollamani Behera</h3>
@@ -63,27 +60,27 @@ export default function Footer() {
         <div className="text-[clamp(10px,1.5vw,24px)] font-[300] flex gap-x-[clamp(10px,4vw,40px)]" >
           
           <div className="flex flex-col  space-y-2 md:space-y-6 ">
-            <a href="/projects" className="underline underline-offset-6 decoration-1 transition">
+            <a href="/project" className="underline underline-offset-3 md:underline-offset-6 decoration-1 transition">
             Projects
           </a>
-          <a href="/process" className="underline underline-offset-6
+          <a href="/process" className="underline underline-offset-3 md:underline-offset-6
           decoration-1  transition">
             Process
           </a>
-          <a href="/packages" className="underline underline-offset-6 decoration-1 transition">
+          <a href="/package" className="underline underline-offset-3 md:underline-offset-6 decoration-1 transition">
             Packages
           </a>
-          <a href="/contact" className="underline underline-offset-7
+          <a href="/contact" className="underline underline-offset-3 md:underline-offset-6
           decoration-1  transition">
             Contact
           </a>
           </div>
           <div className="flex flex-col  space-y-2 md:space-y-6">
-            <a href="/privacy" className="underline underline-offset-7
+            <a href="/privacy" className="underline underline-offset-3 md:underline-offset-6
           decoration-1  transition">
             Privacy policy
           </a>
-          <a href="/terms" className="underline underline-offset-7
+          <a href="/terms" className="underline underline-offset-3 md:underline-offset-6
           decoration-1 transition">
             Terms of service
           </a>
@@ -112,29 +109,29 @@ export default function Footer() {
         </p>
 
         {/* Socials */}
-        <div className="flex gap-[clamp(10px,2vw,20px)] items-center">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            
-          >
-            <img src="/images/icons/Instagram.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            
-          >
-            <img src="/images/icons/Linkedin.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
-          </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-           
-          >
-            <img src="/images/icons/Youtube.png" className="h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]"/>
-          </a>
-        </div>
+       <div className="flex gap-[clamp(10px,2vw,20px)] items-center">
+  {[
+    { href: "https://instagram.com", src: "/images/icons/Instagram.png", alt: "Instagram" },
+    { href: "https://linkedin.com", src: "/images/icons/Linkedin.png", alt: "LinkedIn" },
+    { href: "https://youtube.com", src: "/images/icons/Youtube.png", alt: "YouTube" },
+  ].map((social) => (
+    <a
+      key={social.alt}
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-center h-[clamp(40px,3vw,50px)] w-[clamp(40px,3vw,50px)]
+        transition-transform duration-200 ease-out
+        md:hover:-translate-y-1.5 md:active:scale-90"
+    >
+      <img
+        src={social.src}
+        alt={social.alt}
+        className="max-h-full max-w-full object-contain"
+      />
+    </a>
+  ))}
+</div>
       </div>
     </footer>
   );

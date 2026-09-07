@@ -3,7 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
-
+import SectionHeading from "./SectionHeading";
+import { staggerContainer, revealItem ,pressSpring} from "./motion";
 const testimonials = [
   {
     text2: "I have worked with several designers in the past, but Mani is the first who truly met my expectations. He takes the time to listen carefully to every requirement and delivers with precision. For my company logo, we were impressed with the very first design, yet when we requested an alternative, Mani patiently created another option without hesitation and we are 100% satisfied with the result.",
@@ -55,23 +56,9 @@ export default function Hero4() {
     setActive(Math.round(track.scrollLeft / stride));
   };
   return (
-    <section className="lg:pt-[74px] px-[clamp(20px,4vw,120px)]  pt-[44px]  pb-[34px] bg-white">
-      {/* Heading */}
-      <div
-        className="flex items-center gap-4 lg:mb-[70px] md:mb-[37px] mb-[29px]"
-        
-      >
-        <h2
-          className="text-[clamp(16px,2.3vw,28px)] font-[500] text-black whitespace-nowrap"
-          
-        >
-          Words from people I've worked with
-        </h2>
-        <div
-          className="flex-1 h-px bg-[#989898]"
-         
-        />
-      </div>
+    <section className="lg:pt-[74px] px-[clamp(20px,4vw,120px)] pt-[44px] pb-[34px] bg-white">
+  <SectionHeading>Words from people I've worked with</SectionHeading>
+
       {/* 📱 Mobile slider */}
       <div className="md:hidden">
         <div
@@ -128,24 +115,33 @@ export default function Hero4() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center  gap-2 mt-4 ">
-          {testimonials.map((_, i) => (
-            <span
-              key={i}
-              className={`h-3 w-3 rounded-full transition ${
-                active === i ? "bg-[#570202] scale-125" : "bg-[#D9D9D9] scale-100"
-              }`}
-            />
-          ))}
-        </div>
+       <div className="flex justify-center gap-2 mt-4">
+    {testimonials.map((_, i) => (
+      <span key={i} className="relative h-3 w-3 rounded-full bg-[#D9D9D9]">
+        {active === i && (
+          <motion.span
+            layoutId="testimonial-dot"
+            transition={pressSpring}
+            className="absolute inset-0 rounded-full bg-[#570202]"
+          />
+        )}
+      </span>
+    ))}
+  </div>
       </div>
-      <div  className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-[clamp(2rem,3vw,8rem)]
- text-[#6D7876] font-[400]">
-        {testimonials.map((item) => (
-        <div
-          
-          className="border rounded-[6px] p-4 bg-white shadow-sm border-[#989898] flex flex-col justify-between  "
-        >
+      <motion.div
+    variants={staggerContainer}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, margin: "-60px" }}
+    className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-[clamp(2rem,3vw,8rem)] text-[#6D7876] font-[400]"
+  >
+        {testimonials.map((item, i) => ( // was missing (item, i) — fixes the React key warning
+      <motion.div
+        key={i}
+        variants={revealItem}
+        className="border rounded-[6px] p-4 bg-white shadow-sm border-[#989898] flex flex-col justify-between"
+      >
           <div className="flex flex-col  ">
           {item.img ? (
             <img
@@ -168,9 +164,9 @@ export default function Hero4() {
             {item.name}<br/>
             {item.company}
           </div>
-        </div>
+        </motion.div>
       ))}
-      </div>
+      </motion.div>
       </section>
   )
 }

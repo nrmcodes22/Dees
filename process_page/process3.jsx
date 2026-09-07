@@ -1,169 +1,152 @@
 "use client";
-import React from "react";
-import { useState } from "react";
-const steps = [
-  {
-    number: "01",
-    title: "Discovery call",
-    description:
-      "A quick call to understand your goals, to get to know your brand, and see if we’re the right fit.",
-  },
-  {
-    number: "02",
-    title: "Questionnaire & Proposal",
-    description:
-      "You’ll receive a simple questionnaire, I’ll gather key details through the same and send over a clear proposal.",
-  },
-  {
-    number: "03",
-    title: "Proposal Confirmation",
-    description:
-      "Upon your confirmation of this proposal, we will finalize the project scope and begin working on delivering results.",
-  },
-  {
-    number: "04",
-    title: "Project Delivery",
-    description:
-      "On completion, I’ll deliver the final files in agreed formats, polished and everything else you need to go live.",
-  },
-];
-const steps1 = [
-  {
-    number: "01",
-    title: "Reading & Research",
-    description:
-      "Here, I go through your company brief, understand your brand, go through your competitors’ profiles, extract relevant words from the brief, and understand your needs before any design work begins. The goal of a designer is to… understand!",
-  },
-  {
-    number: "02",
-    title: "Mood boarding",
-    description:
-      "I collect visuals, colors, and styles to capture the right tone, build a mood board to set the creative direction, and present 2-3 design options for your review. Together, we’ll determine the best fit for your brand.",
-  },
-  {
-    number: "03",
-    title: "Sketching",
-    description:
-      "I sketch 10 to 100s of ideas on paper, exploring multiple logo directions to select the most relevant and effective design that follows all the logo principles, and then jump into the next step. Sketching till the muse strikes!",
-  },
-  {
-    number: "04",
-    title: "Vectorization",
-    description:
-      "I refine selected concepts into precise vector form, transforming rough ideas into polished logos. A logo that looks great in black and white will only get better with color. Does your logo pass the B&W test?",
-  },
-  {
-    number: "05",
-    title: "Presentation & Mockups",
-    description:
-      "Showcasing designs in real-world mockups for clarity. A quick call helps you understand the concept and how it aligns with your brand, giving you a live look at your brand’s identity. Visualize Your Brand!",
-  },
-  {
-    number: "06",
-    title: "Final or Feedback",
-    description:
-      "After reviewing the presentation, you’ll provide your feedback. If approved, we’ll finalize and launch your asset. If revisions are needed, we’ll go back to step 1 and refine accordingly. Perfected and ready to launch!",
-  },
-];
+import React, { useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { clientSteps, designSteps } from "./processData";
 
-export default function ProcessSteps() {
-  const [active, setActive] = useState('client')
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+function TimelineRow({ step, index, total, scrollYProgress }) {
+  const start = index / total;
+  const end = (index + 1) / total;
+  // Maps this row's slice of the container's scroll progress to a 0→1 fill,
+  // clamped so segments before/after their turn stay fully empty/full.
+  const scaleY = useTransform(scrollYProgress, [start, end], [0, 1], {
+    clamp: true,
+  });
+
   return (
-    <div className="block md:hidden ">
-    <div className="flex w-full text-black">
-        <button
-          onClick={() => setActive('client')}
-          className={`px-4.5 py-4.5 w-[50vw] text-[16px] font-[500] transition
-            ${active === 'client'
-              ? 'bg-[#FFE7E7]'
-              : 'bg-white'
-            }`}
-        >
-          Client Process
-        </button>
-
-        <button
-          onClick={() => setActive('design')}
-          className={`px-4.5 py-4.5 w-[50vw] text-[16px] font-[500] transition
-            ${active === 'design'
-               ? 'bg-[#FFE7E7]'
-              : 'bg-white'
-            }`}
-        >
-          Design Process
-        </button>
+    <motion.div
+      className="flex gap-4"
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+    >
+      {/* Rail: circle + connecting line */}
+      <div className="flex flex-col items-center flex-shrink-0">
+        <div className="w-[clamp(64px,20vw,90px)] h-[clamp(64px,20vw,90px)] flex items-center justify-center rounded-full bg-[#570202] text-white text-[clamp(26px,8vw,38px)] font-[400] z-10">
+          {step.number}
+        </div>
+        {index !== total - 1 && (
+          <div className="relative flex-1 w-px">
+            {/* Static base line, faint */}
+            <div className="absolute inset-0 w-px bg-black/15" />
+            {/* Animated fill that travels down as you scroll */}
+            <motion.div
+              style={{ scaleY, transformOrigin: "top" }}
+              className="absolute inset-0 w-px bg-black"
+            />
+          </div>
+        )}
       </div>
 
       {/* Content */}
-      <div className="mt-24">
-        {active === 'client' && (
-          <div className="relative px-6 min-w-[350px] ">
-  
-  {/* Single vertical line */}
-  <div className="absolute left-17 top-7 bottom-9 w-px bg-black"></div>
-
-  {/* Steps */}
-  <div className="flex flex-col gap-25">
-    {steps.map((step, i) => (
-      <div key={i} className="flex gap-4 relative">
-        
-        {/* Circle */}
-        <div className="w-22.5 h-22.5 flex items-center justify-center rounded-full bg-[#570202] text-white text-[38px] font-[400] z-10">
-          {step.number}
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 ml-2">
-          <h3 className="font-semibold text-black text-[clamp(22px,4vw,28px)] mb-1">
-            {step.title}
-          </h3>
-          <p className="text-[#6D7876] text-[clamp(16px,3vw,22px)] leading-[clamp(16px,3vw,20px)] font-[300] mt-2">
-            {step.description}
-          </p>
-        </div>
-
+      <div className="flex-1 pb-10 pt-2">
+        <h3 className="font-semibold text-black text-[clamp(20px,5vw,28px)] mb-1">
+          {step.title}
+        </h3>
+        <p className="text-[#6D7876] text-[clamp(15px,3.5vw,22px)] leading-[1.4] font-[300] mt-2">
+          {step.description}
+        </p>
       </div>
-    ))}
-  </div>
-</div>
+    </motion.div>
+  );
+}
 
+function TimelineList({ steps }) {
+  const containerRef = useRef(null);
+  // Progress tracks scroll through this specific list, not the whole page.
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.85", "end 0.6"],
+  });
 
-        )}
+  return (
+    <div ref={containerRef} className="flex flex-col px-6">
+      {steps.map((step, i) => (
+        <TimelineRow
+          key={step.number}
+          step={step}
+          index={i}
+          total={steps.length}
+          scrollYProgress={scrollYProgress}
+        />
+      ))}
+    </div>
+  );
+}
 
-        {active === 'design' && (
-          <div>
-            {/* Design Process content */}
-            <div className="relative px-6 min-w-[350px] ">
-  
-  {/* Single vertical line */}
-  <div className="absolute left-17 top-7 bottom-28   w-px bg-black"></div>
+export default function ProcessSteps() {
+  const [active, setActive] = React.useState("client");
 
-  {/* Steps */}
-  <div className="flex flex-col gap-25 ">
-    {steps1.map((step, i) => (
-      <div key={i} className="flex gap-4 relative">
-        
-        {/* Circle */}
-        <div className="w-22.5 h-22.5 flex items-center justify-center rounded-full bg-[#570202] text-white text-[38px] font-[400] z-10">
-          {step.number}
-        </div>
+  return (
+    <div className="block md:hidden">
+      <div className="flex w-full text-black relative">
+        <button
+          onClick={() => setActive("client")}
+          className={`px-4.5 py-4.5 w-[50vw] text-[16px] font-[500] transition-colors relative ${
+            active === "client" ? "bg-[#FFE7E7]" : "bg-white"
+          }`}
+        >
+          Client Process
+          {active === "client" && (
+            <motion.span
+              layoutId="mobile-tab-underline"
+              className="absolute left-0 right-0 -bottom-[1px] h-[2px] bg-[#570202]"
+            />
+          )}
+        </button>
 
-        {/* Content */}
-        <div className="flex-1 ml-2">
-          <h3 className="font-semibold text-black text-[clamp(22px,4vw,28px)] mb-1">
-            {step.title}
-          </h3>
-          <p className="text-[#6D7876] text-[clamp(16px,3vw,22px)] leading-[clamp(16px,3vw,20px)]  font-[300] mt-2">
-            {step.description}
-          </p>
-        </div>
-
+        <button
+          onClick={() => setActive("design")}
+          className={`px-4.5 py-4.5 w-[50vw] text-[16px] font-[500] transition-colors relative ${
+            active === "design" ? "bg-[#FFE7E7]" : "bg-white"
+          }`}
+        >
+          Design Process
+          {active === "design" && (
+            <motion.span
+              layoutId="mobile-tab-underline"
+              className="absolute left-0 right-0 -bottom-[1px] h-[2px] bg-[#570202]"
+            />
+          )}
+        </button>
       </div>
-    ))}
-  </div>
-</div>
-          </div>
-        )}
+
+      {/* Tab content crossfades + slides instead of hard-swapping */}
+      <div className="mt-24 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {active === "client" && (
+            <motion.div
+              key="client"
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <TimelineList steps={clientSteps} />
+            </motion.div>
+          )}
+          {active === "design" && (
+            <motion.div
+              key="design"
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <TimelineList steps={designSteps} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
