@@ -517,7 +517,8 @@ export default function Hero1() {
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
-        className={`${workSans.className} relative z-10 mx-6 mt-8 max-w-[430px] text-[15.5px] leading-relaxed text-white/70 md:mx-10 lg:mx-14`}
+        className={`${workSans.className} relative z-10 mx-6 mt-8 max-w-[430px] text-[15.5px] leading-relaxed text-white/70 md:mx-14
+          lg:mx-20`}
       >
         Logic gives a brand its structure; feeling gives it a pulse. Dees
         works at the point where the two meet — building marks that are as
