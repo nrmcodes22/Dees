@@ -38,7 +38,7 @@ export default function Navbar() {
   // "Contact" now renders as its own pill button, not a plain link —
   // pulled out of this list so it doesn't get the underline-on-hover
   // treatment the rest of the items get.
-  const menuItems = [
+  const menuItemsDesktop = [
     { label: "Projects", href: "/project" },
     { label: "Logos", href: "/logos" },
     { label: "Process", href: "/process" },
@@ -46,7 +46,14 @@ export default function Navbar() {
     { label: "About", href: "/about" },
     
   ];
-
+const menuItemsMobile = [
+    { label: "Projects", href: "/project" },
+    { label: "Logos", href: "/logos" },
+    { label: "Process", href: "/process" },
+    { label: "Packages", href: "/package" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
   // Magnetic pull for the Contact pill — mirrors the prototype's
   // mousemove-driven translate, smoothed with a spring so it trails
   // the cursor instead of snapping to it.
@@ -118,7 +125,7 @@ export default function Navbar() {
         initial="hidden"
         animate="visible"
       >
-        {menuItems.map((item) => (
+        {menuItemsDesktop.map((item) => (
           <motion.a
             key={item.href}
             href={item.href}
@@ -265,7 +272,7 @@ export default function Navbar() {
               />
             </button>
 
-            {menuItems.map((item) => (
+            {menuItemsMobile.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
