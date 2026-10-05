@@ -44,7 +44,7 @@ export default function Navbar() {
     { label: "Process", href: "/process" },
     { label: "Packages", href: "/package" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    
   ];
 
   // Magnetic pull for the Contact pill — mirrors the prototype's
